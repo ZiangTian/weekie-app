@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignInForm from './SignInForm';
 import './LoginStyles.css';
+import {images} from "../assets/images"; // 导入图片
 
 interface LoginProps {
-  setIsAuthenticated: (isAuthenticated: boolean) => void;
+    setIsAuthenticated: (isAuthenticated: boolean) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
@@ -14,7 +15,6 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Logging in with", { username, password }); // 添加这行以便调试
     if (username === 'user' && password === 'password') {
       setIsAuthenticated(true);
       navigate('/home');
@@ -24,14 +24,39 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="login-container">
-      <SignInForm
-        username={username}
-        password={password}
-        onUsernameChange={(e) => setUsername(e.target.value)}
-        onPasswordChange={(e) => setPassword(e.target.value)}
-        onSubmit={handleLogin}
-      />
+    <div className="login-page">
+      <div className="login-image-container">
+        {/* <img
+          style={{ width: '100%', height: '100%', transform: 'rotate(180deg)', transformOrigin: '0 0' }}
+          src= {loginImage}
+          alt="Login"
+          className="login-image"
+        /> */}
+        <img 
+          // style={{ width: '100%', height: '100%'}}
+          src={images['loginImg']} 
+          alt="Login"
+          className="login-image"
+        />
+      </div>
+      <div className="login-form-container">
+        <div className="login-logo-container">
+        <img 
+          // style={{ width: '100%', height: '100%'}}
+          src={images['logo']} 
+          alt="logo"
+          className="login-logo"
+        />
+          {/* <img src={logo} alt="Logo" className="login-logo" /> */}
+        </div>
+        <SignInForm
+          username={username}
+          password={password}
+          onUsernameChange={(e) => setUsername(e.target.value)}
+          onPasswordChange={(e) => setPassword(e.target.value)}
+          onSubmit={handleLogin}
+        />
+      </div>
     </div>
   );
 };

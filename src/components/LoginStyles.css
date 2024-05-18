@@ -1,49 +1,51 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f2f5;
-  }
-  
-  .login-box {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+.login-page {
+  display: flex;
+  height: 100vh;
+}
+
+.login-image-container {
+  flex: 7; /* 70% 宽度 */
+}
+
+.login-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* transform: rotate(180deg); */
+  transform-origin: 0 0;
+}
+
+.login-form-container {
+  flex: 3; /* 30% 宽度 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 125px 48px 171px 48px;
+  background: white;
+}
+
+
+.login-logo-container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  width: 100%; /* 使其充满父容器的宽度 */
+  height: 150px; /* 调整高度以适应较大的 logo */
+  margin-bottom: 48px;
+}
+
+.login-logo {
+  width: 100%; /* 使其根据父容器的大小进行缩放 */
+  max-width: 300px; /* 设置最大宽度 */
+  height: auto; /* 保持纵横比 */
+}
+
+.background-shapes .shape {
+  position: absolute;
+  background: #F4BE4B;
+}
+
+
+
+/* 添加其他样式，如输入框、按钮等 */
