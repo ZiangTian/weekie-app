@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SignInForm from './SignInForm'; // 导入 SignInForm 组件
-import './Login.css'; // 导入自定义的CSS
+import SignInForm from './SignInForm';
+import './LoginStyles.css';
 
 interface LoginProps {
   setIsAuthenticated: (isAuthenticated: boolean) => void;
@@ -14,6 +14,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Logging in with", { username, password }); // 添加这行以便调试
     if (username === 'user' && password === 'password') {
       setIsAuthenticated(true);
       navigate('/home');
@@ -24,7 +25,13 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
 
   return (
     <div className="login-container">
-      <SignInForm /> {/* 使用 SignInForm 组件 */}
+      <SignInForm
+        username={username}
+        password={password}
+        onUsernameChange={(e) => setUsername(e.target.value)}
+        onPasswordChange={(e) => setPassword(e.target.value)}
+        onSubmit={handleLogin}
+      />
     </div>
   );
 };
