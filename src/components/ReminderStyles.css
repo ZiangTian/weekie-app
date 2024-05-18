@@ -1,0 +1,89 @@
+.reminder-container {
+  height: 32px;
+  /* padding-left: 11px; */
+  border-radius: 12px;
+  width: 212px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.reminder-content {
+  height: 100%;
+  padding-left: 12px;
+  background: #141722;
+  border-radius: 15px;
+  overflow: hidden;
+  /* border: 2.5px rgba(255, 255, 255, 0) solid; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reminder-left {
+  width: 106px;
+  height: 26px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.reminder-icon-container {
+  width: 19px;
+  height: 19px;
+  /* padding: 4px 2px; */
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reminder-icon {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 600;
+}
+
+.reminder-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.reminder-text {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+.reminder-right {
+  width: 39px;
+  height: 21px;
+  padding-right: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+
+.reminder-count {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+.reminder-arrow-container {
+  width: 18px;
+  height: 24px;
+  position: relative;
+}

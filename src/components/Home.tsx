@@ -22,12 +22,16 @@ import EMat from '../components/EMat'; // 将来可以添加 GradientComponent �
 import './HomeStyles.css';
 import { Scheduler } from '@aldabil/react-scheduler';
 import { EVENTS } from '../events';
+import Reminder from '../components/Reminder';
+import List from '../components/Lists';
 
 const Home: React.FC = () => {
   return (
     <div className="home-page">
       <Menu />
       <EMat />
+      {/* <Reminder backgroundColor={'orange'} count={0} name={'shit'} /> */}
+      {/* <List /> */}
       <Scheduler events={EVENTS} />
       {/* <Header /> */}
 

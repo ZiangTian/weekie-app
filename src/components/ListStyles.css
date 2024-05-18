@@ -1,0 +1,29 @@
+.list-container {
+    width: 290px;
+    height: 231px;
+    padding-top: 16px;
+    padding-bottom: 39px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .list-title-container {
+    width: 130px;
+    padding-left: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .list-title {
+    color: white;
+    font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 700;
+  }
+
+  

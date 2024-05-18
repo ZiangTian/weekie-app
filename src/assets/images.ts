@@ -4,7 +4,8 @@ import loginImg from './Rectangle.png';
 import iconProf from './ICONE_CLIENTE.svg';
 import iconHome from './ICONE_HOME.svg';
 import iconLogo from './ic.png';
-import iconAdd from './add.svg'
+import iconAdd from './add.svg';
+import iconArrow from './ArrowRight.svg';
 
 
 export const images : {[key:string] : any} = {
@@ -15,5 +16,6 @@ export const images : {[key:string] : any} = {
     "iconHome" : iconHome,
     "iconLogo" : iconLogo,
     'iconAdd'  : iconAdd,
+    'iconArrow' : iconArrow,
 }
 

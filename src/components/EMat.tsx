@@ -1,6 +1,7 @@
 import React from 'react';
 import './EMatStyles.css';
 import GradientComponent from './GradientComponent';
+import Lists from './Lists';
 
 const EisenhowerMatrix = () => {
   return (
@@ -27,6 +28,10 @@ const EisenhowerMatrix = () => {
 
         <div className="quadrant bottom-right-quadrant">
             <GradientComponent/>
+        </div>
+
+        <div className="matList">
+          <Lists/>
         </div>
 
         
