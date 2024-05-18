@@ -26,14 +26,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
   return (
     <div className="login-page">
       <div className="login-image-container">
-        {/* <img
-          style={{ width: '100%', height: '100%', transform: 'rotate(180deg)', transformOrigin: '0 0' }}
-          src= {loginImage}
-          alt="Login"
-          className="login-image"
-        /> */}
         <img 
-          // style={{ width: '100%', height: '100%'}}
           src={images['loginImg']} 
           alt="Login"
           className="login-image"
@@ -42,12 +35,10 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
       <div className="login-form-container">
         <div className="login-logo-container">
         <img 
-          // style={{ width: '100%', height: '100%'}}
           src={images['logo']} 
           alt="logo"
           className="login-logo"
         />
-          {/* <img src={logo} alt="Logo" className="login-logo" /> */}
         </div>
         <SignInForm
           username={username}
