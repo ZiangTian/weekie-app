@@ -18,14 +18,17 @@
 import React from 'react';
 import Header from '../components/Header';
 import Menu from '../components/Menu'; // 将来可以添加 Menu 组件
-import GradientComponent from '../components/GradientComponent'; // 将来可以添加 GradientComponent 组件
+import EMat from '../components/EMat'; // 将来可以添加 GradientComponent 组件
 import './HomeStyles.css';
+import { Scheduler } from '@aldabil/react-scheduler';
+import { EVENTS } from '../events';
 
 const Home: React.FC = () => {
   return (
     <div className="home-page">
-      {/* <Menu /> */}
-      <GradientComponent />
+      <Menu />
+      <EMat />
+      <Scheduler events={EVENTS} />
       {/* <Header /> */}
 
       {/* <Menu /> */}
