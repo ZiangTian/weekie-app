@@ -3,12 +3,45 @@
     flex-direction: row;
     height: 100vh;
     width: 100%;
+    background-color: #32384A;
   }
   
-  .menu-container {
-    flex: 0 0 auto;
+  .menu {
+    width: 90px;
+    height: 664px;
+    background-color: #4F5D75; 
+    border-radius: 18px;
+    position: absolute;
+    left: 8px;
+    top: 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 20;
   }
   
-  .header-container {
-    flex: 1;
+  
+  .header {
+    /* border-radius: 18px; */
+    position: absolute;
+    left: 147px;
+    top: 28px;
+    /* display: flex; */
+  }
+
+  .emat {
+    /* border-radius: 18px; */
+    position: absolute;
+    left: 142px;
+    top: 124px;
+    /* display: flex; */
+  }
+
+  .scheduler {
+    /* border-radius: 18px; */
+    position: absolute;
+    left: 491px;
+    top: 131px;
+    width: 700px;
+    height: 565px;
+    /* display: flex; */
   }

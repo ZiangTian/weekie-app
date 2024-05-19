@@ -28,15 +28,21 @@ import List from '../components/Lists';
 const Home: React.FC = () => {
   return (
     <div className="home-page">
-      <Menu />
+      <div className="header">
+        <Header />
+      </div>
+      
+      <div className="menu">
+        <Menu />
+      </div>
+      
+      <div className = "emat">
       <EMat />
-      {/* <Reminder backgroundColor={'orange'} count={0} name={'shit'} /> */}
-      {/* <List /> */}
-      <Scheduler events={EVENTS} />
-      {/* <Header /> */}
+      </div>
 
-      {/* <Menu /> */}
-      {/* 其他内容 */}
+      <div className = 'scheduler'>
+      <Scheduler events={EVENTS} />
+      </div>
     </div>
   );
 };
