@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
             alt="iconSel"
           />
         </div>}
-
+        
         <img 
           src={images['iconHome']} 
           alt="iconHome"
@@ -62,6 +62,7 @@ const Menu: React.FC = () => {
             alt="iconSel"
           />
         </div>}
+        
         <img 
           src={images['iconProf']} 
           alt="iconProf"

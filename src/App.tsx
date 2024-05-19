@@ -10,12 +10,12 @@ const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   
     /* test home */
-  return (
-    <Routes>
-      <Route path="/profile" element={<Profile />} />
-      <Route path="*" element={<Navigate to="/profile" />} />
-    </Routes>
-  );
+  // return (
+  //   <Routes>
+  //     <Route path="/profile" element={<Profile />} />
+  //     <Route path="*" element={<Navigate to="/profile" />} />
+  //   </Routes>
+  // );
 
 
 
