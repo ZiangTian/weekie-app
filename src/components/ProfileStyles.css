@@ -27,3 +27,9 @@
     top: 28px;
     /* display: flex; */
   }
+
+  .infoForm{
+    position: absolute;
+    left: 147px;
+    top: 126px;
+  }

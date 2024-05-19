@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   return (
     <div className="home-page">
       <div className="header">
-        <Header />
+        <Header title='Schedule' />
       </div>
       
       <div className="menu">

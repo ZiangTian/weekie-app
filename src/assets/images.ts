@@ -7,6 +7,8 @@ import iconLogo from './ic.png';
 import iconAdd from './add.svg';
 import iconArrow from './ArrowRight.svg';
 import iconSel from './SELETOR.svg';
+import pfp from './pfp.png';
+import iconMail from './mail.svg';
 
 
 export const images : {[key:string] : any} = {
@@ -19,5 +21,7 @@ export const images : {[key:string] : any} = {
     'iconAdd'  : iconAdd,
     'iconArrow' : iconArrow,
     'iconSel' : iconSel,
+    'pfp' : pfp,
+    'iconMail' : iconMail,
 }
 
