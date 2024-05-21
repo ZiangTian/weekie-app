@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${weekie.datasource.driver-class-name}
+      url: jdbc:mysql://${weekie.datasource.host}:${weekie.datasource.port}/${weekie.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${weekie.datasource.username}
+      password: ${weekie.datasource.password}
+  redis:
+    host: ${weekie.redis.host}
+    port: ${weekie.redis.port}
+    password: ${weekie.redis.password}
+    database: ${weekie.redis.database}
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.weekie.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      weekie:
+        mapper: debug
+        service: info
+        controller: info
+
+weekie:
+  jwt:
+    #管理端
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: fishlulu
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+

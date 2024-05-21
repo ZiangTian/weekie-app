@@ -11,12 +11,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserVO {
+public class ScheduleVO {
     private Integer id;
-    private String userName;
-    private String password;
-    private String lastName;
-    private String firstName;
-    private String email;
-    private String jwt;
+    private Integer userId;
+    private String title;
+    private String start;
+    private String end;
 }

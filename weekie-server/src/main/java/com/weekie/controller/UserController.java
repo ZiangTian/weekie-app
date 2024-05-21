@@ -29,9 +29,5 @@ public class UserController {
         if(user!=null) userService.change(user);
         return Result.success();
     }
-//    @PostMapping("/api/change")
-//    public  Result<UserVO>change() throws Exception {
-//        return Result.success();
-//    }
 
 }
