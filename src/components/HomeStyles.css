@@ -1,47 +1,51 @@
 .home-page {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100%;
-    background-color: #32384A;
-  }
-  
-  .menu {
-    width: 90px;
-    height: 664px;
-    background-color: #4F5D75; 
-    border-radius: 18px;
-    position: absolute;
-    left: 8px;
-    top: 28px;
-    display: flex;
-    flex-direction: column;
-    flex: 20;
-  }
-  
-  
-  .header {
-    /* border-radius: 18px; */
-    position: absolute;
-    left: 147px;
-    top: 28px;
-    /* display: flex; */
-  }
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  background-color: #32384A;
+}
 
-  .emat {
-    /* border-radius: 18px; */
-    position: absolute;
-    left: 142px;
-    top: 124px;
-    /* display: flex; */
-  }
+.menu {
+  width: 90px;
+  height: 900px;
+  background-color: #4F5D75; 
+  border-radius: 18px;
+  position: absolute;
+  left: 8px;
+  top: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 20;
+}
 
-  .scheduler {
-    /* border-radius: 18px; */
-    position: absolute;
-    left: 491px;
-    top: 131px;
-    width: 700px;
-    height: 565px;
-    /* display: flex; */
-  }
+
+.header {
+  /* border-radius: 18px; */
+  position: absolute;
+  left: 147px;
+  top: 28px;
+  /* display: flex; */
+}
+
+.emat {
+  /* border-radius: 18px; */
+  position: absolute;
+  left: 147px;
+  top: 120px;
+  /* display: flex; */
+}
+
+.scheduler {
+  /* border-radius: 18px; */
+  position: absolute;
+  left: 700px;
+  top: 121px;
+  width: 1246px;
+  height: 1000px ;
+  /* display: flex; */
+}
+
+.scheduler div[style] {
+  height: 260px !important; /* 覆盖内联样式 */
+}

@@ -1,6 +1,6 @@
 .eisenhower-matrix {
-  width: 296px;
-  height: 557px;
+  width: 500px;
+  height: 960px;
   background: #141722;
   border-radius: 15px;
   position: relative;
@@ -13,13 +13,13 @@
 
 .title {
   color: white;
-  font-size: 20px;
+  font-size: 26px;
   font-family: 'Inter';
   font-weight: 600;
   word-wrap: break-word;
   position: absolute;
-  top: 15px;
-  left: 10px;
+  top: 10px;
+  left: 20px;
 }
 
 .horizontal-line {
@@ -27,13 +27,13 @@
   width: calc(100% - 30px);
   height: 1px;
   background: white;
-  top: 179px;
+  top: 255px;
   left: 15px;
 }
 
 .vertical-line {
   position: absolute;
-  height: calc(100% - 358px);
+  height: calc(50% - 100px);
   width: 1px;
   background: white;
   top: 77px;
@@ -56,42 +56,33 @@
 }
 
 .bottom-left-quadrant {
-  top: 185px;
+  top: 285px;
   left: 30px;
 }
 
 .bottom-right-quadrant {
-  top: 185px;
+  top: 285px;
   right: 30px;
 }
 
 .text {
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Inter';
   font-weight: 600;
+  position: absolute;
+  top: 160px;
+  left: 0px;
 }
 
-.text-left {
-  position: absolute;
-  top: 179px;
-  left: 10px;
-  transform: translateY(-50%);
-}
 
-.text-top {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
 .impo{
   position: absolute;
-  left: 119px;
-  top: 57px;
+  left: 212px;
+  top: 50px;
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Inter';
   font-weight: 600;
 }

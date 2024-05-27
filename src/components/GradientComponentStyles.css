@@ -1,45 +1,44 @@
 /* GradientComponent.css */
 
 .gradient-container {
-    width: 109px;
-    height: 90px;
-    position: relative;
-  }
-  
-  .gradient-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(107deg, rgba(239, 131, 84, 0.40) 0%, rgba(78, 92, 116, 0.20) 100%);
-    border-radius: 15px;
-    border: 1px rgba(239, 131, 84, 0.30) solid;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(30px);
-  }
-  
-  .gradient-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 48px;
-    font-family: 'Inter';
-    font-weight: 600;
-    word-wrap: break-word;
-  }
-  
-  
-  .gradient-subelement {
-    width: 23px;
-    height: 23px;
-    background: rgba(0, 0, 0, 0);
-    border: 1px rgba(239, 131, 84, 0) solid;
-    backdrop-filter: blur(4px);
-    position: absolute;
-    bottom: 0; /* Adjust as needed */
-    right: 0; /* Adjust as needed */
-  }
-  
+  width: 200px;
+  height: 150px;
+  position: relative;
+}
+
+.gradient-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(107deg, rgba(239, 131, 84, 0.40) 0%, rgba(78, 92, 116, 0.20) 100%);
+  border-radius: 15px;
+  border: 1px rgba(239, 131, 84, 0.30) solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(30px);
+}
+
+.gradient-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 48px;
+  font-family: 'Inter';
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+
+.gradient-subelement {
+  width: 23px;
+  height: 23px;
+  background: rgba(0, 0, 0, 0);
+  border: 1px rgba(239, 131, 84, 0) solid;
+  backdrop-filter: blur(4px);
+  position: absolute;
+  bottom: 0; /* Adjust as needed */
+  right: 0; /* Adjust as needed */
+}

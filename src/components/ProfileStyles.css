@@ -1,35 +1,37 @@
 .profile-page {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100%;
-    background-color: #32384A;
-  }
-  
-  .menu {
-    width: 90px;
-    height: 664px;
-    background-color: #4F5D75; 
-    border-radius: 18px;
-    position: absolute;
-    left: 8px;
-    top: 28px;
-    display: flex;
-    flex-direction: column;
-    flex: 20;
-  }
-  
-  
-  .header {
-    /* border-radius: 18px; */
-    position: absolute;
-    left: 147px;
-    top: 28px;
-    /* display: flex; */
-  }
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  background-color: #32384A;
+}
 
-  .infoForm{
-    position: absolute;
-    left: 147px;
-    top: 126px;
-  }
+.menu {
+  width: 90px;
+  height: 1050px;
+  background-color: #4F5D75; 
+  border-radius: 18px;
+  position: absolute;
+  left: 8px;
+  top: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 20;
+  
+}
+
+
+.header {
+  /* border-radius: 18px; */
+  position: absolute;
+  left: 147px;
+  top: 28px;
+  /* display: flex; */
+}
+
+.infoForm{
+  position: absolute;
+  left: 147px;
+  top: 126px;
+  
+}

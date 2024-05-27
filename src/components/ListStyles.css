@@ -1,29 +1,55 @@
 .list-container {
-    width: 290px;
-    height: 231px;
-    padding-top: 16px;
-    padding-bottom: 39px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 4px;
-  }
-  
-  .list-title-container {
-    width: 130px;
-    padding-left: 12px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .list-title {
-    color: white;
-    font-size: 16px;
-    font-family: 'Inter';
-    font-weight: 700;
-  }
+  width: 500px;
+  height: 420px;
+  padding-top: 16px;
+  padding-bottom: 39px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+}
 
+.list-title-container {
+  width: 500px;
+  padding-left: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.list-title {
+  color: white;
+  font-size: 26px;
+  font-family: 'Inter';
+  font-weight: 700;
   
+}
+
+
+
+.reminders-scroll-container {
+  max-height: 400px; /* 设置一个固定的高度 */
+  overflow-y: auto;  /* 启用垂直滚动条 */
+}
+
+.reminders-scroll-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.reminders-scroll-container::-webkit-scrollbar-track {
+  background: #141722;
+}
+
+.reminders-scroll-container::-webkit-scrollbar-thumb {
+  background: #787777 ;
+  min-height: 5px;
+  border-radius: 8px;
+}
+
+
+.reminder-container {
+  margin-bottom: 5px; 
+}
+
