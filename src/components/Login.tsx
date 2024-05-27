@@ -15,6 +15,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    // 
     if (username === 'user' && password === 'password') {
       setIsAuthenticated(true);
       navigate('/home');
