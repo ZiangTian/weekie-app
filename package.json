@@ -15,6 +15,7 @@
     "@mui/icons-material": "5.15.10",
     "@mui/material": "5.15.10",
     "@mui/x-date-pickers": "6.19.4",
+    "antd": "^5.17.3",
     "date-fns": "2.30.0",
     "loader-utils": "3.2.1",
     "react": "18.2.0",
