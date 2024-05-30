@@ -24,29 +24,29 @@ const UserForm = (props: PropsType, ref?: React.ForwardedRef<FormInstance>) => {
         wrapperCol={{ span: 16 }}
       >
         <Form.Item
-          label="Tasktitle"
-          name="Tasktitle"
+          label="title"
+          name="title"
           rules={[{ required: true, message: 'Please input Tasktitle!' }]}
         >
           <Input />
         </Form.Item>
 
-        <Form.Item name="StartTime" label="StartTime" 
+        <Form.Item name="startTime" label="startTime" 
           rules={[{ required: true, message: 'Please Choose startTime' }]}
         >
-         <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+         <DatePicker showTime format="YYYY-MM-DD HH:mm" placeholder='choose startTime'/>
        </Form.Item>
       
-       <Form.Item name="EndTime" label="EndTime" 
+       <Form.Item name="endTime" label="endTime" 
           rules={[{ required: true, message: 'Please Choose EndTime' }]}
         >
-         <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+         <DatePicker showTime format="YYYY-MM-DD HH:mm" placeholder='choose endTime' />
        </Form.Item>
 
-       <Form.Item name="DeadLine" label="DeadLine" 
+       <Form.Item name="deadLine" label="deadLine" 
           rules={[{ required: true, message: 'Please Choose DeadLine' }]}
         >
-         <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+         <DatePicker showTime format="YYYY-MM-DD HH:mm" placeholder='choose deadLine' />
        </Form.Item>
         
         <Form.Item
@@ -72,16 +72,16 @@ const UserForm = (props: PropsType, ref?: React.ForwardedRef<FormInstance>) => {
         </Form.Item>
         
         <Form.Item
-          label="Tag"
-          name="Tag"
+          label="tag"
+          name="tag"
           rules={[{ required: true, message: 'Please input Tag.' }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Desc"
-          name="Desc"
+          label="desc"
+          name="desc"
           rules={[{ message: 'details of task' }]}
         >
          <Input.TextArea />

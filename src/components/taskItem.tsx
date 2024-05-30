@@ -1,35 +1,40 @@
 import React,{useState} from "react";
 import './taskItemStyles.css'
+import moment from "moment";
 interface Iprops{
-    event_id: String
-    title:String
-    startTime: string
-    endTime: string
-    deadline: string
-    // Importance:boolean
-    // Urgency:boolean
-    tag:string
-    desc:string
+    // event_id: String
+    title:string;
+    startTime: moment.Moment;
+    endTime: moment.Moment;
+    deadLine: moment.Moment;
+    Importance:boolean;
+    Urgency:boolean;
+    tag:string;
+    desc:string | undefined;
+    active:boolean
+    onClick:()=>void
+    onFinish:()=>void
+    onRemove:()=>void
     //status:doing||done
 }
 export default function TaskItem(props:Iprops){
-    const {event_id,title,startTime,endTime,deadline,tag,desc}=props
+    const {title,startTime,endTime,deadLine,tag,active=false,onClick,onFinish,onRemove}=props
     return (
-        <div className="task-item">
-           <div className="task-item_info">
+        <div className={`task-item ${active? 'task-item--active':''}`} >
+           <div className="task-item_info" onClick={onClick}>
               <div className="task-item_title">
                 {title}
               </div>
-              <div className="task-item_desc">
-                {desc}
+              <div className="task-item_ddl">
+                {deadLine.format('YYYY-MM-DD HH:mm')}
               </div>
            </div>
             <div className="task-item_status">
-              <div className="task-item_ddl">
-                {deadline}
-              </div>
-              <button className="task-item_finish-btn">
+              <button className="task-item_finish-btn" onClick={onFinish}>
               Done
+              </button>
+              <button className="task-item_dele-btn" onClick={onRemove}>
+              Delete
               </button>
             </div>
            

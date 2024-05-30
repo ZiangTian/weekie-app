@@ -1,75 +1,135 @@
-import React from 'react';
+import React, { useState,useRef,MutableRefObject,useMemo } from 'react';
 import './MaintaskStyles.css';
 import TaskItem from '../components/taskItem'
-import {Button, DatePicker, Input } from 'antd';
+import {Button, DatePicker, Drawer, Input, message } from 'antd';
 import GradientComponent from './GradientComponent';
-import Lists from './Lists';
+import { FormInstance } from 'antd/es/form';
+import withModal from './useModal';
+import UserForm from './UserForm';
+import './MaintaskStyles.css';
 import { PlusIcon } from './Icon/Icon';
-import TestPage from './AddTaskPage';
-
+import './taskItemStyles.css'
+import moment from "moment";
+import TaskDetail from './TaskDetail';
+import apiConfig from '../api/config';
+export type TaskT={
+  taskID:string
+  title:string
+  startTime: moment.Moment
+  endTime: moment.Moment
+  deadLine: moment.Moment
+  Importance:boolean
+  Urgency:boolean
+  tag:string
+  desc?: string;
+}
 const Task = () => {
-  const onChange=(value:any,dateString:string | string[])=>{
-    console.log('Selected Time: ',value);
-    console.log('formatted Selected Time',dateString);
-  }
-  const onOk=(value:any)=>{
-    console.log('onOk: ',value)
-  }
-  const handleFocus=()=>{
+  
+  const detailRef: MutableRefObject<any> = useRef()
 
-  }
+  const [visiable, setVisiable] = useState(false);
+  const [tasks,setTasks]=useState<TaskT[]>([])
+  const [activeTaskKey,setActiveTaskKey] = useState('')
+  const activeTask = useMemo(()=>{
+    return tasks.find(i =>i.taskID===activeTaskKey)
+  },[tasks,activeTaskKey])
+ 
+
+    const open = () => {
+      setVisiable(true);
+    };
+    //关闭弹窗
+    const close = () => {
+      setVisiable(false);
+    };
+    //点击确定提交表单
+    const submit = (ref: MutableRefObject<FormInstance>) => {
+      ref.current.submit();
+
+    };
+    const afterSubmit = (values:any) => {
+      const taskID =Date.now().toString()
+      const newTask: TaskT = {
+        title: values.title,
+        startTime: moment(values.startTime.toDate()),
+        endTime: moment(values.endTime.toDate()),
+        deadLine:moment(values.deadLine.toDate()),
+        Importance: values.Importance,
+        Urgency: values.Urgency,
+        tag: values.tag,
+        desc: values.desc,
+        taskID:taskID,
+
+      };
+      message.success('Successfully Added')
+      console.log(
+        ...tasks, newTask,
+        // values
+
+      )
+      setTasks([...tasks, newTask]);
+      close();
+    };
+  
+    
+    const UserFormModal = withModal({ title: 'AddTask' }, { afterSubmit })(React.forwardRef(UserForm));
+  
+    const handleFinish =(taskID:string)=>{
+      // setTasks([...tasks.filter(i=>i.taskID!==taskID)])
+      api(apiConfig.create.url).then(data =>{
+        console.log(data,'api');
+      }).catch(e=>{
+        console.log(e);
+      })
+    }
+
+    const handleRemove =(taskID:string)=>{
+      setTasks([...tasks.filter(i=>i.taskID!==taskID)])
+    }
+
+    const handleModify=(values:TaskT)=>{
+      
+      setTasks([...tasks.filter(i=>i.taskID!==activeTaskKey),values])
+      message.success('Successfully Modify')
+}
   return (
     <div className="outer-container">
         <div className="Task_background"></div>
         <div className="task_title">TaskList</div>
-        <TestPage />
-        {/* <div className='add-task-btn'>
-        
+        <div>
+        <div className="add-task-btn" onClick={open}>
             <PlusIcon />
-            <input placeholder='Add Task' onFocus={handleFocus}></input>
-            <div className='add-task-text' >Add Task</div>
-     
-        </div> */}
-        {/* <DatePicker showTime onChange={onChange} onOk={onOk} placeholder='Select DeadLine Time'></DatePicker> */}
-        {/* <TestPage></TestPage> */}
-        <div className='TaskItem'>
-           <div className='TaskItem-container'>
-           <TaskItem event_id='1' title='test'
-    startTime='2024-02-12'
-    endTime='2024-02-12'
-    deadline='2024-02-12'
-    tag="csapp"
-    desc='quickly'></TaskItem>
-    <TaskItem event_id='1' title='test'
-    startTime='2024-02-12'
-    endTime='2024-02-12'
-    deadline='2024-02-12'
-    tag="csapp"
-    desc='quickly'></TaskItem>
-    <TaskItem event_id='1' title='test'
-    startTime='2024-02-12'
-    endTime='2024-02-12'
-    deadline='2024-02-12'
-    tag="csapp"
-    desc='quickly'></TaskItem>
-    <TaskItem event_id='1' title='test'
-    startTime='2024-02-12'
-    endTime='2024-02-12'
-    deadline='2024-02-12'
-    tag="csapp"
-    desc='quickly'></TaskItem>
-    <TaskItem event_id='1' title='test'
-    startTime='2024-02-12'
-    endTime='2024-02-12'
-    deadline='2024-02-12'
-    tag="csapp"
-    desc='quickly'></TaskItem>
+            <div className='add-task-text'>Add Task</div>
+        </div>
+        <UserFormModal open={visiable} onCancel={close} onOk={submit} />
+      </div>
+      {tasks.map((task, index) => (
+        <TaskItem
+          key={index}
+          title={task.title}
+          startTime={task.startTime}
+          endTime={task.endTime}
+          deadLine={task.deadLine}
+          Importance={task.Importance}
+          Urgency={task.Urgency}
+          tag={task.tag}
+          desc={task.desc}
+          active={activeTaskKey===task.taskID}
+          onClick={()=>setActiveTaskKey(task.taskID)}
+          onFinish={()=>handleFinish(task.taskID)}
+          onRemove={()=>handleRemove(task.taskID)}
+        />
+      ))}
+      <TaskDetail task={activeTask}
+      onClose={()=>{
+        setActiveTaskKey('');
+      }}
+      onSubmit={handleModify}
+      
+      />
+      </div>
+      
   
-
-      </div>
-      </div>    
-      </div>
-
   );
 };
 

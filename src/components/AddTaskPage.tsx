@@ -7,6 +7,7 @@ import './MaintaskStyles.css';
 import { PlusIcon } from './Icon/Icon';
 
 export default function TestPage() {
+
     const [visiable, setVisiable] = useState(false);
     // 打开弹窗
     const open = () => {
@@ -23,6 +24,7 @@ export default function TestPage() {
     const afterSubmit = () => {
       close();
     };
+
     const UserFormModal = withModal({ title: 'AddTask' }, { afterSubmit })(React.forwardRef(UserForm));
   
     return (
@@ -32,7 +34,7 @@ export default function TestPage() {
             <div className='add-task-text'>Add Task</div>
         
         </div>
-        <UserFormModal visible={visiable} onCancel={close} onOk={submit} />
+        <UserFormModal open={visiable} onCancel={close} onOk={submit} />
       </div>
     );
   }
