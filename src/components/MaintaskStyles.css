@@ -1,0 +1,50 @@
+.Task_background {
+    width: 960px;
+    height: 950px;
+    background: linear-gradient(90deg, #212430 100%, #141722 0%);
+    border-radius: 15px;
+    position: relative; 
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 680px;
+    margin-top: 120px;
+  
+}
+.task_title {
+    color: white;
+    font-size: 24px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+    position: absolute;
+    display: flex;
+    top: 140px;
+    left: 720px;
+}
+.add-task-btn{
+   
+    display: flex;
+    position:absolute;
+    height: 20px;
+    width: 880px;
+
+    top:190px;
+    left: 705px;
+    padding: 10px 20px;
+    transition: all 0.1s;
+    cursor: pointer;
+    box-shadow: 0 0 1px 1px #dddadd;
+  
+    /* align-items: center; */
+    &:hover{
+        box-shadow: 0 0 2px 2px #787878;
+    }
+}
+.add-task-text{
+    color: #787878;
+    margin-left: 10px;
+
+}

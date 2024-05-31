@@ -63,3 +63,20 @@ html, body {
 .scheduler div[style] {
   height: 260px !important; /* 覆盖内联样式 */
 }
+
+/* Tasks
+*/
+.tasks{
+  width: 656px;
+  background-color: #32384A;
+  margin-left: 266px;
+  vertical-align: top;
+  padding-left: 40px;
+  padding-right:40px ;
+  padding-top: 80px;
+  padding-bottom: 84px;
+
+}
+.add_task{
+ margin-top: 20px;
+}

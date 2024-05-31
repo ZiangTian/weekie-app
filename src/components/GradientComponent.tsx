@@ -9,14 +9,14 @@ const GradientComponent = () => {
     <div className="gradient-container">
       <div className="gradient-background"></div>
       <div className="gradient-text">9</div>
-      <div className="gradient-subelement">
-        <img 
+      {/* <div className="gradient-subelement"> */}
+        {/* <img 
           src={images['iconAdd']} 
           alt="iconAdd"
         //   className="menu-icon"
-        />
+        /> */}
       </div>
-    </div>
+    // </div>
   );
 };
 
