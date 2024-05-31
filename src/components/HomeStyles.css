@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .home-page {
   display: flex;
   flex-direction: row;
@@ -42,10 +56,27 @@
   left: 700px;
   top: 121px;
   width: 1246px;
-  height: 1000px ;
+  height: 500px ;
   /* display: flex; */
 }
 
 .scheduler div[style] {
   height: 260px !important; /* 覆盖内联样式 */
+}
+
+/* Tasks
+*/
+.tasks{
+  width: 656px;
+  background-color: #32384A;
+  margin-left: 266px;
+  vertical-align: top;
+  padding-left: 40px;
+  padding-right:40px ;
+  padding-top: 80px;
+  padding-bottom: 84px;
+
+}
+.add_task{
+ margin-top: 20px;
 }

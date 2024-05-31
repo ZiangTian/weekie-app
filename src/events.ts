@@ -4,7 +4,11 @@ export const EVENTS = [
     title: "Event 1",
     start: new Date(new Date(new Date().setHours(9)).setMinutes(0)),
     end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+    Importance:1,
+    Urgent:1,
     disabled: true,
+    draggable: false,
     admin_id: [1, 2, 3, 4],
   },
   {
@@ -12,7 +16,11 @@ export const EVENTS = [
     title: "Event 2",
     start: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
     end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
+    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
     admin_id: 2,
+    Importance:1,
+    Urgent:1,
+    draggable: false,
     color: "#50b500",
   },
   {
@@ -20,9 +28,13 @@ export const EVENTS = [
     title: "Event 3",
     start: new Date(new Date(new Date().setHours(11)).setMinutes(0)),
     end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
+    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+    Importance:1,
+    Urgent:1,
     admin_id: 1,
     editable: false,
     deletable: false,
+    draggable: false,
   },
   {
     event_id: 4,
@@ -37,8 +49,12 @@ export const EVENTS = [
         new Date().getDate() - 2
       )
     ),
+    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+    Importance:1,
+    Urgent:1,
     admin_id: 2,
     color: "#900000",
+    draggable: false,
   },
   {
     event_id: 5,
@@ -53,8 +69,12 @@ export const EVENTS = [
         new Date().getDate() - 2
       )
     ),
+    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+    Importance:1,
+    Urgent:1,
     admin_id: 2,
     editable: true,
+    draggable: false,
   },
   {
     event_id: 6,
@@ -65,6 +85,10 @@ export const EVENTS = [
       )
     ),
     end: new Date(new Date(new Date().setHours(14)).setMinutes(0)),
+    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+    Importance:1,
+    Urgent:1,
     admin_id: 2,
+    draggable: false,
   },
 ];

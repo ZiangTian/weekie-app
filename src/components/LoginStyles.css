@@ -1,18 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* 防止页面滚动 */
+}
+
 .login-page {
   display: flex;
+  flex-direction: row;
   height: 100vh;
+  width: 100vw; /* 使用视口宽度 */
 }
 
 .login-image-container {
   flex: 7; /* 70% 宽度 */
+  height: 100%; /* 确保高度为100% */
 }
 
 .login-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* transform: rotate(180deg); */
-  transform-origin: 0 0;
 }
 
 .login-form-container {
@@ -23,8 +36,9 @@
   align-items: flex-start;
   padding: 125px 48px 171px 48px;
   background: white;
+  height: 100%; /* 确保高度为100% */
+  overflow: hidden; /* 防止内容溢出 */
 }
-
 
 .login-logo-container {
   display: flex;
@@ -45,7 +59,5 @@
   position: absolute;
   background: #F4BE4B;
 }
-
-
 
 /* 添加其他样式，如输入框、按钮等 */

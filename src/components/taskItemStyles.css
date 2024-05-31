@@ -1,0 +1,97 @@
+.task-item{
+    position: relative;
+    padding: 10px;
+    height: 80px;
+    width: 900px;
+    bottom:820px ;
+    left: 700px;
+    display: flex;
+    /* gap:400px; */
+    /* color:white; */
+    box-shadow: 0 0 1px 1px #787878;
+    justify-content: space-between;
+    border-radius: 2px;
+    transition: all 0.1s;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+  
+    /* align-items: center; */
+    &:hover{
+        box-shadow: 0 0 2px 2px #c7c5c7;
+    }}
+.task-item--active{
+
+    background: #787878;
+    color:beige;
+}
+.task-item_info{
+       color: white;
+       display: flex;
+       flex-direction: column;
+       flex:1;
+       margin-right: 10px;
+       /* margin: auto; */
+       /* position: absolute; */
+       /* bottom:404px;      
+       /* left: 480px;  */
+       /* left:100px; */
+       transition : all 0.1s;
+       padding-left: 10px;
+       border-radius: 2px;
+       &:hover{
+        background-color:#2c303e;
+    }
+
+    }
+.task-item_title{
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.task-item_desc{
+   color:#c7c5c7
+}
+.task-item_status{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+        /* right: 480px;
+        bottom:400px;   */
+        /* left: 800px; */
+
+    }
+.task-item_ddl{
+        margin-bottom: 10px;
+        padding: 2px 6px;
+        background: linear-gradient(107deg, rgba(255, 130, 77, 0.706) 0%, rgba(78, 92, 116, 0.20) 100%);
+        border-radius: 10px;
+        font-size: 16px;
+        height: 25px;
+        width: 180px;
+        margin-bottom: 2px;
+       
+    }
+.task-item_finish-btn{
+    border: none;
+    background:linear-gradient(120deg, rgba(255, 130, 77, 0.706) 0%, rgba(78, 92, 116, 0.20) 100%); ;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    left: 490px;
+    font-size: 16px;
+
+}
+.task-item_dele-btn{
+    border-radius: 2px;
+    background:rgb(247, 236, 218);
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    left: 490px;
+    font-size: 16px;
+    margin-top: 10px;
+}
