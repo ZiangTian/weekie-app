@@ -18,7 +18,6 @@ const App: React.FC = () => {
   // );
 
 
-
   return (
     <Routes>
       <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
