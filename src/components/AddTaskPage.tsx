@@ -8,14 +8,14 @@ import { PlusIcon } from './Icon/Icon';
 
 export default function TestPage() {
 
-    const [visiable, setVisiable] = useState(false);
+    const [visible, setVisible] = useState(false);
     // 打开弹窗
     const open = () => {
-      setVisiable(true);
+      setVisible(true);
     };
     //关闭弹窗
     const close = () => {
-      setVisiable(false);
+      setVisible(false);
     };
     //点击确定提交表单
     const submit = (ref: MutableRefObject<FormInstance>) => {
@@ -34,7 +34,7 @@ export default function TestPage() {
             <div className='add-task-text'>Add Task</div>
         
         </div>
-        <UserFormModal open={visiable} onCancel={close} onOk={submit} />
+        <UserFormModal open={visible} onCancel={close} onOk={submit} />
       </div>
     );
   }

@@ -2,23 +2,29 @@
 
 import React from 'react';
 import './GradientComponentStyles.css';
-import { images } from '../assets/images'; // 导入图标
+import { images } from '../assets/images';
 
-const GradientComponent = () => {
+interface GradientProps {
+  number: number; 
+  addTask: () => void; // 添加addTask属性
+  onClick?: () => void;
+}
+
+const GradientComponent: React.FC<GradientProps> = ({ number, addTask, onClick }) => {
   return (
     <div className="gradient-container">
       <div className="gradient-background"></div>
-      <div className="gradient-text">9</div>
-      {/* <div className="gradient-subelement"> */}
-        {/* <img 
+      <div className="gradient-text">{number}</div>
+      <button className="gradient-subelement" onClick={onClick}>
+        <img 
           src={images['iconAdd']} 
           alt="iconAdd"
-        //   className="menu-icon"
-        /> */}
-      </div>
-    // </div>
+        />
+      </button>
+    </div>
   );
 };
 
 export default GradientComponent;
+
 

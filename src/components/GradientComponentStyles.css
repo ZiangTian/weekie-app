@@ -33,12 +33,13 @@
 
 
 .gradient-subelement {
-  width: 23px;
-  height: 23px;
+  width: 26px;
+  height: 26px;
   background: rgba(0, 0, 0, 0);
   border: 1px rgba(239, 131, 84, 0) solid;
   backdrop-filter: blur(4px);
   position: absolute;
+  cursor: pointer;
   bottom: 0; /* Adjust as needed */
   right: 0; /* Adjust as needed */
 }

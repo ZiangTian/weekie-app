@@ -27,7 +27,7 @@ const Task = () => {
   
   const detailRef: MutableRefObject<any> = useRef()
 
-  const [visiable, setVisiable] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [tasks,setTasks]=useState<TaskT[]>([])
   const [activeTaskKey,setActiveTaskKey] = useState('')
   const activeTask = useMemo(()=>{
@@ -36,11 +36,11 @@ const Task = () => {
  
 
     const open = () => {
-      setVisiable(true);
+      setVisible(true);
     };
     //关闭弹窗
     const close = () => {
-      setVisiable(false);
+      setVisible(false);
     };
     //点击确定提交表单
     const submit = (ref: MutableRefObject<FormInstance>) => {
@@ -101,7 +101,7 @@ const Task = () => {
             <PlusIcon />
             <div className='add-task-text'>Add Task</div>
         </div>
-        <UserFormModal open={visiable} onCancel={close} onOk={submit} />
+        <UserFormModal open={visible} onCancel={close} onOk={submit} />
       </div>
       {tasks.map((task, index) => (
         <TaskItem

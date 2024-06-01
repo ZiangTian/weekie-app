@@ -13,14 +13,31 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 
-    if (username === 'user' && password === 'password') {
-      setIsAuthenticated(true);
-      navigate('/home');
-    } else {
-      alert('Invalid credentials');
+  
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        setIsAuthenticated(true);
+        navigate('/home');
+      } else {
+        alert(data.error);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Login failed');
     }
   };
 
