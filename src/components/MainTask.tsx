@@ -1,4 +1,4 @@
-import React, { useState,useRef,MutableRefObject,useMemo } from 'react';
+import React, { useState,useRef,MutableRefObject,useMemo, useEffect } from 'react';
 import './MaintaskStyles.css';
 import TaskItem from '../components/taskItem'
 import {Button, DatePicker, Drawer, Input, message } from 'antd';
@@ -12,6 +12,8 @@ import './taskItemStyles.css'
 import moment from "moment";
 import TaskDetail from './TaskDetail';
 import apiConfig from '../api/config';
+import { addTask as dbAddTask, getTasks, removeTask as dbRemoveTask, updateTask as dbUpdateTask } from './TaskStorage';
+
 export type TaskT={
   taskID:string
   title:string
@@ -33,6 +35,24 @@ const Task = () => {
   const activeTask = useMemo(()=>{
     return tasks.find(i =>i.taskID===activeTaskKey)
   },[tasks,activeTaskKey])
+
+  useEffect(() => {
+    const loadTasks = async () => {
+      const loadedTasks = await getTasks();
+      console.log(loadedTasks)
+      setTasks(loadedTasks.map(
+        // set the string to moment object
+        i => ({
+          ...i,
+          startTime: moment(i.startTime),
+          endTime: moment(i.endTime),
+          deadLine: moment(i.deadLine),
+        }
+      )));
+    };
+
+    loadTasks();
+  }, []);
  
 
     const open = () => {
@@ -75,34 +95,37 @@ const Task = () => {
     const UserFormModal = withModal({ title: 'AddTask' }, { afterSubmit })(React.forwardRef(UserForm));
   
     const handleFinish =(taskID:string)=>{
-      // setTasks([...tasks.filter(i=>i.taskID!==taskID)])
-      api(apiConfig.create.url).then(data =>{
-        console.log(data,'api');
-      }).catch(e=>{
-        console.log(e);
-      })
+      setTasks([...tasks.filter(i=>i.taskID!==taskID)])
+      // api(apiConfig.create.url).then(data =>{
+      //   console.log(data,'api');
+      // }).catch(e=>{
+      //   console.log(e);
+      // })
     }
 
     const handleRemove =(taskID:string)=>{
-      setTasks([...tasks.filter(i=>i.taskID!==taskID)])
+      // remove from the database
+      dbRemoveTask(taskID);
+      window.location.reload(); // Refresh the page
+      // setTasks([...tasks.filter(i=>i.taskID!==taskID)])
     }
 
     const handleModify=(values:TaskT)=>{
       
       setTasks([...tasks.filter(i=>i.taskID!==activeTaskKey),values])
       message.success('Successfully Modify')
-}
+    }
   return (
     <div className="outer-container">
         <div className="Task_background"></div>
         <div className="task_title">TaskList</div>
-        <div>
+        {/* <div>
         <div className="add-task-btn" onClick={open}>
             <PlusIcon />
             <div className='add-task-text'>Add Task</div>
         </div>
         <UserFormModal open={visible} onCancel={close} onOk={submit} />
-      </div>
+      </div> */}
       {tasks.map((task, index) => (
         <TaskItem
           key={index}

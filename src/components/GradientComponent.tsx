@@ -6,8 +6,8 @@ import { images } from '../assets/images';
 
 interface GradientProps {
   number: number; 
-  addTask: () => void; // 添加addTask属性
-  onClick?: () => void;
+  addTask?: () => void; // 添加addTask属性
+  onClick: () => void;
 }
 
 const GradientComponent: React.FC<GradientProps> = ({ number, addTask, onClick }) => {

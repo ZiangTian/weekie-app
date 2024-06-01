@@ -17,6 +17,7 @@ export default function TaskDetail(props:IProps){
 
     useEffect(() => {
       if (task) {
+        console.log('task',task)
         form.setFieldsValue({
           ...task,
           startTime: moment(task.startTime),
@@ -101,7 +102,7 @@ export default function TaskDetail(props:IProps){
           label="Importance"
           name="Importance"
           initialValue={task?.Importance}
-        //   rules={[{ required: true }]}
+          rules={[{ required: true }]}
         >
           <Select >
             <Select.Option value={0}>Not Important</Select.Option>
