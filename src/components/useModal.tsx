@@ -4,8 +4,6 @@ import * as React from 'react';
 import type { MutableRefObject } from 'react';
 interface PropsType<T> extends Omit<ModalProps, 'onOk'> {
   onOk: (ref: MutableRefObject<T | undefined>) => void;
-  initialImportance?: boolean;
-  initialUrgency?: boolean;
 }
 function withModal<T = any>(modalProps?: ModalProps, slotProps?: any) {
   return function (Slot: React.FC<any>) {
@@ -23,7 +21,7 @@ function withModal<T = any>(modalProps?: ModalProps, slotProps?: any) {
             {...props}
             onOk={() => props?.onOk?.(ref)}
           >
-            <Slot {...slotProps} ref={ref} close={props?.onCancel} initialImportance={props?.initialImportance} initialUrgency={props?.initialUrgency}/>
+            <Slot {...slotProps} ref={ref} close={props?.onCancel} />
           </Modal>
         </div>
       );

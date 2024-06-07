@@ -9,14 +9,7 @@ const generateColor = (index: number) => {
 };
 
 const List = () => {
-  // const [reminders, setReminders] = useState([
-  //   { backgroundColor: '#FFA033', count: 3, name: 'Reminders 1' },
-  //   { backgroundColor: '#793834', count: 3, name: 'Reminders 2' },
-  //   { backgroundColor: '#33FF47', count: 3, name: 'Reminders 3' },
-  //   { backgroundColor: '#2E466B', count: 3, name: 'Reminders 4' },
-  //   { backgroundColor: '#8133FF', count: 3, name: 'Reminders 5' },
-  // ]);
-
+  
   const [reminders, setReminders] = useState<{ backgroundColor: string, count: number, name: string }[]>([]);
 
   useEffect(() => {
@@ -35,7 +28,7 @@ const List = () => {
 
       // Assign distinct colors to each tag
       const tagColors: { [key: string]: string } = {};
-      const colors = ['#FFA033', '#793834', '#33FF47', '#2E466B', '#8133FF'];
+      // const colors = ['#FFA033', '#793834', '#33FF47', '#2E466B', '#8133FF'];
       let colorIndex = 0;
 
       const newReminders = Object.keys(tagCounts).map(tag => {

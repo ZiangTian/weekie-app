@@ -29,7 +29,7 @@ const Task = () => {
   
   const detailRef: MutableRefObject<any> = useRef()
 
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
   const [tasks,setTasks]=useState<TaskT[]>([])
   const [activeTaskKey,setActiveTaskKey] = useState('')
   const activeTask = useMemo(()=>{
@@ -56,11 +56,11 @@ const Task = () => {
  
 
     const open = () => {
-      setVisible(true);
+      // setVisible(true);
     };
     //关闭弹窗
     const close = () => {
-      setVisible(false);
+      // setVisible(false);
     };
     //点击确定提交表单
     const submit = (ref: MutableRefObject<FormInstance>) => {
@@ -113,7 +113,7 @@ const Task = () => {
     const handleModify=(values:TaskT)=>{
       
       setTasks([...tasks.filter(i=>i.taskID!==activeTaskKey),values])
-      message.success('Successfully Modify')
+      message.success('Successfully Modified')
     }
   return (
     <div className="outer-container">

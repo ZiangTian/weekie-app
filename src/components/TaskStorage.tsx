@@ -33,8 +33,15 @@ export const addTask = async (task: TaskT): Promise<void> => {
 
 export const updateTask = async (task: TaskT): Promise<void> => {
   if (!db) await initDB();
-  await db.put('tasks', task);
+  const existingTask = await db.get('tasks', task.taskID);
+  console.log("existing", existingTask)
+  if (existingTask) {
+    await db.put('tasks', task);
+  } else {
+    throw new Error(`Task with ID ${task.taskID} does not exist.`);
+  }
 };
+
 
 export const removeTask = async (taskID: string): Promise<void> => {
   if (!db) await initDB();

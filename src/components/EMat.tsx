@@ -12,7 +12,7 @@ import './taskItemStyles.css'
 import moment from "moment";
 import {TaskT} from './MainTask'
 import { getTasks, addTask, updateTask, removeTask } from './TaskStorage';
-
+import { images } from '../assets/images';
 
 
 const EisenhowerMatrix = () => {
@@ -20,12 +20,17 @@ const EisenhowerMatrix = () => {
   const [visible, setVisible] = useState(false);
   const [tasks,setTasks]=useState<TaskT[]>([])
   const open = () => {
+    console.log("open called")
     setVisible(true);
   };
   const close = () => {
-    setVisible(false);
-    console.log('close')
+    const newName = false;
+    setVisible(newName);
   };
+
+  useEffect(() => {
+    setVisible(visible)
+  }, [visible]);
 
   useEffect(() => {
     const loadTasks = async () => {
@@ -35,6 +40,15 @@ const EisenhowerMatrix = () => {
 
     loadTasks();
   }, []);
+
+  const countTasks = (importance: boolean, urgency: boolean) => {
+    // const imp = importance ? 1 : 0
+    // const urg = urgency ? 1 : 0
+    console.log("tasks: ",tasks)
+    console.log("counts: ",tasks.filter(task => task.Importance === importance && task.Urgency === urgency).length)
+    return tasks.filter(task => task.Importance === importance && task.Urgency === urgency).length;
+  };
+
 
   const submit = (ref: MutableRefObject<FormInstance>) => {
     ref.current.submit();
@@ -78,38 +92,39 @@ const EisenhowerMatrix = () => {
 
         <div className="horizontal-line"></div>
         <div className="vertical-line"></div>
+
+        <div className="central" >
+          <div onClick={open}>
+            <img 
+              src={images['iconAdd']} 
+              alt="iconAdd"
+            />
+          </div>
+          <UserFormModal open={visible} onCancel = {()=>{setVisible(false)}} onOk={submit} /> 
+        </div>
+
+
    
         <div className="quadrant top-left-quadrant" >
-          <GradientComponent number={9} onClick={open} />
-           <div>
-           <UserFormModal open={visible} onCancel={close} onOk={submit} initialImportance={true} initialUrgency={false}/>
-           </div>
+          <GradientComponent number={countTasks(true, true)} />
+
 
           <div className="text">Urgent</div>
         </div>
   
 
         <div className="quadrant top-right-quadrant">
-            <GradientComponent number={8} onClick={open} />
-            <div>
-          <UserFormModal open={visible} onCancel={close} onOk={submit} initialImportance={true} initialUrgency={true}/>
-           </div>
+            <GradientComponent number={countTasks(true, false)}  />
         
         </div>
 
         <div className="quadrant bottom-left-quadrant">
-          <GradientComponent number={10} onClick={open}/>
-          <div>
-          <UserFormModal open={visible} onCancel={close} onOk={submit} initialImportance={false} initialUrgency={false}/>
-          </div> 
+          <GradientComponent number={countTasks(false, true)} />
         
         </div>
 
         <div className="quadrant bottom-right-quadrant">
-            <GradientComponent number={10} onClick={open}/>
-            <div>
-          <UserFormModal open={visible} onCancel={close} onOk={submit} initialImportance={false} initialUrgency={true}/>
-           </div>
+            <GradientComponent number={countTasks(false, false)} />
         
         </div>
 

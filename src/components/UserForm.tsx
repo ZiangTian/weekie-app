@@ -1,36 +1,18 @@
 import { Form, Input, Select,DatePicker } from 'antd';
 import type { FormInstance } from 'antd/es/form';
 import React from 'react';
-import ImportLabel from './ImpLabelComponent'; // Import the importLabel component
-
-// ...
-
-
 type PropsType = React.PropsWithChildren<{
   afterSubmit?: (values: any, form: FormInstance<any>) => void;
-  initialImportance?: boolean;
-  initialUrgency?: boolean;
 }>;
-
 const UserForm = (props: PropsType, ref?: React.ForwardedRef<FormInstance>) => {
-  // const { afterSubmit, initialImportance, initialUrgency } = props;
   const [form] = Form.useForm();
-  
+  // 提交后获取表单数据，请求接口，重置表单并关闭
   const onSubmit = (values: any) => {
     console.log(values);
     //await  fetch ...
     form.resetFields();
-    values.Importance = props.initialImportance;
-    values.Urgency = props.initialUrgency;
-    props.afterSubmit?.(
-      // set the initialImportance and initialUrgency to the values
-      values,
-      form
-    );
+    props.afterSubmit?.(values, form);
   };
-
-  // if the props.initialImportance is true, we find the task in the database and set its importance to true
-
   
   return (
     <div className="form">
@@ -70,24 +52,23 @@ const UserForm = (props: PropsType, ref?: React.ForwardedRef<FormInstance>) => {
         <Form.Item
           label="Importance"
           name="Importance"
+          rules={[{ required: true }]}
         >
-          <ImportLabel importance={props.initialImportance ?? true} urgency={props.initialUrgency ?? true} selector={true} /> 
-          <Input type="hidden" name = "initialImportance" value={props.initialImportance?.toString() ?? "true" }  />
-          
+          <Select>
+            <Select.Option value={false}>Not Important</Select.Option>
+            <Select.Option value={true}>Important</Select.Option>
+          </Select>
         </Form.Item>
-
 
         <Form.Item
           label="Urgency"
           name="Urgency"
-       
+          rules={[{ required: true}]}
         >
-          {/* <Select>
-            <Select.Option value={0}>Not Urgent</Select.Option>
-            <Select.Option value={1}>Urgent</Select.Option>
-          </Select> */}
-          <ImportLabel importance={props.initialImportance ?? true} urgency={props.initialUrgency ?? true} selector={false} /> 
-          <Input type="hidden" name='initialUrgency' value={props.initialUrgency?.toString() ?? "true"} />
+          <Select>
+            <Select.Option value={false}>Not Urgent</Select.Option>
+            <Select.Option value={true}>Urgent</Select.Option>
+          </Select>
         </Form.Item>
         
         <Form.Item

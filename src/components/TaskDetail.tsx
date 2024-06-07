@@ -3,12 +3,15 @@ import {Drawer, Input,Form, Button, Select,DatePicker,FormInstance} from 'antd'
 import {TaskT} from './MainTask'
 import { useState,useMemo,useRef, useEffect } from 'react'
 import moment, { Moment } from 'moment'
+import { getTasks, addTask, updateTask, removeTask } from './TaskStorage';
+
 
 interface IProps{
       task?:TaskT
       onClose:() => void
       onSubmit:(values:TaskT) => void
 }
+
 export default function TaskDetail(props:IProps){
 
     const {task,onClose,onSubmit} =props;
@@ -17,7 +20,7 @@ export default function TaskDetail(props:IProps){
 
     useEffect(() => {
       if (task) {
-        console.log('task',task)
+        console.log(task)
         form.setFieldsValue({
           ...task,
           startTime: moment(task.startTime),
@@ -47,18 +50,45 @@ export default function TaskDetail(props:IProps){
         </Form.Item>
     }
 
-    const handleSubmit=(values:any)=>{
-        onSubmit?.({
-            title: RealTitle,
-            startTime: moment(values.startTime.toDate()) || task?.startTime,
-            endTime: moment(values.endTime.toDate()) || task?.endTime,
-            deadLine:moment(values.deadLine.toDate()) || task?.deadLine,
-            Importance: values.Importance || task?.Importance,
-            Urgency: values.Urgency || task?.Urgency,
-            tag: values.tag || task?.tag,
-            desc: values.desc || task?.desc,
-            taskID:task?.taskID||''
-        })
+    const handleSubmit=async (values:any)=>{
+      console.log('values',values)
+      const updatedTask: TaskT = {
+        title: RealTitle,
+        startTime: moment(values.startTime.toDate()) || task?.startTime,
+        endTime: moment(values.endTime.toDate()) || task?.endTime,
+        deadLine:moment(values.deadLine.toDate()) || task?.deadLine,
+        Importance: values.Importance || task?.Importance,
+        Urgency: values.Urgency || task?.Urgency,
+        tag: values.tag || task?.tag,
+        desc: values.desc || task?.desc,
+        taskID:task?.taskID||''
+      }
+        // onSubmit?.({
+        //     title: RealTitle,
+        //     startTime: moment(values.startTime.toDate()) || task?.startTime,
+        //     endTime: moment(values.endTime.toDate()) || task?.endTime,
+        //     deadLine:moment(values.deadLine.toDate()) || task?.deadLine,
+        //     Importance: values.Importance || task?.Importance,
+        //     Urgency: values.Urgency || task?.Urgency,
+        //     tag: values.tag || task?.tag,
+        //     desc: values.desc || task?.desc,
+        //     taskID:task?.taskID||''
+        // })
+        try {
+          onSubmit?.(updatedTask);
+            await updateTask({
+            ...updatedTask,
+            startTime: values.startTime.toISOString(),
+            endTime:  values.endTime.toISOString(),
+            deadLine: values.deadLine.toISOString(),
+            });
+          
+          // refresh window
+          window.location.reload();
+        } catch (error) {
+          console.error('Update task failed:', error);
+        }
+
           onClose()
           console.log('form',values)
     }
@@ -101,12 +131,12 @@ export default function TaskDetail(props:IProps){
        <Form.Item
           label="Importance"
           name="Importance"
-          initialValue={task?.Importance}
+          // initialValue={task?.Importance}
           rules={[{ required: true }]}
         >
           <Select >
-            <Select.Option value={0}>Not Important</Select.Option>
-            <Select.Option value={1}>Important</Select.Option>
+            <Select.Option value={false}>Not Important</Select.Option>
+            <Select.Option value={true}>Important</Select.Option>
           </Select>
         </Form.Item>
 
@@ -118,8 +148,8 @@ export default function TaskDetail(props:IProps){
         }
         >
           <Select>
-            <Select.Option value={0}>Not Urgent</Select.Option>
-            <Select.Option value={1}>Urgent</Select.Option>
+            <Select.Option value={false}>Not Urgent</Select.Option>
+            <Select.Option value={true}>Urgent</Select.Option>
           </Select>
         </Form.Item>
         

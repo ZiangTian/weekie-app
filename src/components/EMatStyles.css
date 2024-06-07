@@ -41,6 +41,17 @@
   transform: translateX(-50%);
 }
 
+.central {
+  position: absolute;
+  height: calc(50% - 100px);
+  /* width: 1px; */
+  /* background: white; */
+  top: 215px;
+  object-fit: cover;
+  /* font-size: 320px; */
+  /* left: 50%; */
+}
+
 .quadrant {
   position: absolute;
 }
