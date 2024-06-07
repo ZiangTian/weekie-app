@@ -26,7 +26,10 @@ export default function TaskItem(props:Iprops){
                 {title}
               </div>
               <div className="task-item_ddl">
-                {deadLine.format('YYYY-MM-DD HH:mm')}
+                { /* print deadLine type */
+                
+                }
+                {moment(deadLine).format('YYYY-MM-DD HH:mm')}
               </div>
            </div>
             <div className="task-item_status">

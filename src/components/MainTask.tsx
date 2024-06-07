@@ -25,7 +25,12 @@ export type TaskT={
   tag:string
   desc?: string;
 }
-const Task = () => {
+
+interface MainTaskProps {
+  taskList: TaskT[];
+}
+
+const Task: React.FC<MainTaskProps> = ({ taskList }) => {
   
   const detailRef: MutableRefObject<any> = useRef()
 
@@ -55,44 +60,44 @@ const Task = () => {
   }, []);
  
 
-    const open = () => {
-      // setVisible(true);
-    };
-    //关闭弹窗
-    const close = () => {
-      // setVisible(false);
-    };
-    //点击确定提交表单
-    const submit = (ref: MutableRefObject<FormInstance>) => {
-      ref.current.submit();
+    // const open = () => {
+    //   // setVisible(true);
+    // };
+    // //关闭弹窗
+    // const close = () => {
+    //   // setVisible(false);
+    // };
+    // //点击确定提交表单
+    // const submit = (ref: MutableRefObject<FormInstance>) => {
+    //   ref.current.submit();
 
-    };
-    const afterSubmit = (values:any) => {
-      const taskID =Date.now().toString()
-      const newTask: TaskT = {
-        title: values.title,
-        startTime: moment(values.startTime.toDate()),
-        endTime: moment(values.endTime.toDate()),
-        deadLine:moment(values.deadLine.toDate()),
-        Importance: values.Importance,
-        Urgency: values.Urgency,
-        tag: values.tag,
-        desc: values.desc,
-        taskID:taskID,
+    // };
+    // const afterSubmit = (values:any) => {
+    //   const taskID =Date.now().toString()
+    //   const newTask: TaskT = {
+    //     title: values.title,
+    //     startTime: moment(values.startTime.toDate()),
+    //     endTime: moment(values.endTime.toDate()),
+    //     deadLine:moment(values.deadLine.toDate()),
+    //     Importance: values.Importance,
+    //     Urgency: values.Urgency,
+    //     tag: values.tag,
+    //     desc: values.desc,
+    //     taskID:taskID,
 
-      };
-      message.success('Successfully Added')
-      console.log(
-        ...tasks, newTask,
-        // values
+    //   };
+    //   message.success('Successfully Added')
+    //   console.log(
+    //     ...tasks, newTask,
+    //     // values
 
-      )
-      setTasks([...tasks, newTask]);
-      close();
-    };
+    //   )
+    //   setTasks([...tasks, newTask]);
+    //   close();
+    // };
   
     
-    const UserFormModal = withModal({ title: 'AddTask' }, { afterSubmit })(React.forwardRef(UserForm));
+    // const UserFormModal = withModal({ title: 'AddTask' }, { afterSubmit })(React.forwardRef(UserForm));
   
     const handleFinish =(taskID:string)=>{
       setTasks([...tasks.filter(i=>i.taskID!==taskID)])
@@ -126,7 +131,27 @@ const Task = () => {
         </div>
         <UserFormModal open={visible} onCancel={close} onOk={submit} />
       </div> */}
-      {tasks.map((task, index) => (
+
+
+      {/* {tasks.map((task, index) => (
+        <TaskItem
+          key={index}
+          title={task.title}
+          startTime={task.startTime}
+          endTime={task.endTime}
+          deadLine={task.deadLine}
+          Importance={task.Importance}
+          Urgency={task.Urgency}
+          tag={task.tag}
+          desc={task.desc}
+          active={activeTaskKey===task.taskID}
+          onClick={()=>setActiveTaskKey(task.taskID)}
+          onFinish={()=>handleFinish(task.taskID)}
+          onRemove={()=>handleRemove(task.taskID)}
+        />
+      ))} */}
+
+     {taskList.map((task, index) => (
         <TaskItem
           key={index}
           title={task.title}

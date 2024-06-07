@@ -14,8 +14,13 @@ import {TaskT} from './MainTask'
 import { getTasks, addTask, updateTask, removeTask } from './TaskStorage';
 import { images } from '../assets/images';
 
+interface EMatProps {
+  taskList: TaskT[];
+  filterTasksByGradient: (importance: boolean, urgency: boolean) => void;
+  filterTasksByTag: (tag: string) => void;
+}
 
-const EisenhowerMatrix = () => {
+const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient, filterTasksByTag }) => {
 
   const [visible, setVisible] = useState(false);
   const [tasks,setTasks]=useState<TaskT[]>([])
@@ -102,10 +107,8 @@ const EisenhowerMatrix = () => {
           </div>
           <UserFormModal open={visible} onCancel = {()=>{setVisible(false)}} onOk={submit} /> 
         </div>
-
-
    
-        <div className="quadrant top-left-quadrant" >
+        <div className="quadrant top-left-quadrant" onClick={() => filterTasksByGradient(true, true)}>
           <GradientComponent number={countTasks(true, true)} />
 
 
@@ -113,17 +116,17 @@ const EisenhowerMatrix = () => {
         </div>
   
 
-        <div className="quadrant top-right-quadrant">
+        <div className="quadrant top-right-quadrant" onClick={() => filterTasksByGradient(true, false)}>
             <GradientComponent number={countTasks(true, false)}  />
         
         </div>
 
-        <div className="quadrant bottom-left-quadrant">
+        <div className="quadrant bottom-left-quadrant" onClick={() => filterTasksByGradient(false, true)}>
           <GradientComponent number={countTasks(false, true)} />
         
         </div>
 
-        <div className="quadrant bottom-right-quadrant">
+        <div className="quadrant bottom-right-quadrant" onClick={() => filterTasksByGradient(false, false)}>
             <GradientComponent number={countTasks(false, false)} />
         
         </div>

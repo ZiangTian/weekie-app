@@ -63,17 +63,7 @@ export default function TaskDetail(props:IProps){
         desc: values.desc || task?.desc,
         taskID:task?.taskID||''
       }
-        // onSubmit?.({
-        //     title: RealTitle,
-        //     startTime: moment(values.startTime.toDate()) || task?.startTime,
-        //     endTime: moment(values.endTime.toDate()) || task?.endTime,
-        //     deadLine:moment(values.deadLine.toDate()) || task?.deadLine,
-        //     Importance: values.Importance || task?.Importance,
-        //     Urgency: values.Urgency || task?.Urgency,
-        //     tag: values.tag || task?.tag,
-        //     desc: values.desc || task?.desc,
-        //     taskID:task?.taskID||''
-        // })
+
         try {
           onSubmit?.(updatedTask);
             await updateTask({

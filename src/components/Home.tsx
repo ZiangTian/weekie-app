@@ -15,11 +15,12 @@
 
 // export default Home;
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Menu from '../components/Menu'; 
 import EMat from '../components/EMat';
 import Task from  '../components/MainTask'
+import {TaskT} from './MainTask'
 
 import './HomeStyles.css';
 import { Scheduler } from '@aldabil/react-scheduler';
@@ -27,8 +28,33 @@ import type { SchedulerRef } from '@aldabil/react-scheduler/types';
 import { EVENTS } from '../events';
 import Reminder from '../components/Reminder';
 import List from '../components/Lists';
+import { getTasks } from './TaskStorage';
 
 const Home: React.FC = () => {
+
+  const [tasks, setTasks] = useState<TaskT[]>([]);
+  const [filteredTasks, setFilteredTasks] = useState<TaskT[]>([]);
+
+  useEffect(() => {
+    const loadTasks = async () => {
+      const loadedTasks = await getTasks();
+      setTasks(loadedTasks);
+      setFilteredTasks(loadedTasks);
+    };
+
+    loadTasks();
+  }, []);
+
+  const filterTasksByGradient = (importance: boolean, urgency: boolean) => {
+    const filtered = tasks.filter(task => task.Importance === importance && task.Urgency === urgency);
+    setFilteredTasks(filtered);
+  };
+
+  const filterTasksByTag = (tag: string) => {
+    const filtered = tasks.filter(task => task.tag === tag);
+    setFilteredTasks(filtered);
+  };
+
   return (
     <div className="home-page">
       <div className="header">
@@ -40,11 +66,12 @@ const Home: React.FC = () => {
       </div>
       
       <div className = "emat">
-      <EMat />
+        <EMat taskList={tasks} filterTasksByGradient={filterTasksByGradient} filterTasksByTag={filterTasksByTag} />
+      
       </div>
       
       <div className='Task'>
-      <Task />
+      <Task taskList={filteredTasks} />
      
       </div>
       
