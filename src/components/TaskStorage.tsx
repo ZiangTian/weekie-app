@@ -21,6 +21,7 @@ const initDB = async () => {
   });
 };
 
+
 export const getTasks = async (): Promise<TaskT[]> => {
   if (!db) await initDB();
   return (await db.getAll('tasks')) || [];
@@ -30,6 +31,8 @@ export const addTask = async (task: TaskT): Promise<void> => {
   if (!db) await initDB();
   await db.put('tasks', task);
 };
+
+
 
 export const updateTask = async (task: TaskT): Promise<void> => {
   if (!db) await initDB();

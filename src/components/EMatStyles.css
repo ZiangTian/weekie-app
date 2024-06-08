@@ -47,15 +47,19 @@
   /* width: 1px; */
   /* background: white; */
   top: 215px;
-  object-fit: cover;
+
   /* font-size: 320px; */
   /* left: 50%; */
 }
+
+  
 .central:hover {
-  cursor: pointer;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
+    opacity: 0.8; /* 改变透明度 */
 
-}
-
+  }
+  
 
 .quadrant {
   position: absolute;
