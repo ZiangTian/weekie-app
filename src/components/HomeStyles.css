@@ -61,8 +61,8 @@ html, body {
 }
 
 .scheduler div[style] {
-  height: 260px !important; /* 覆盖内联样式 */
-}
+  height: 160px !important; /* 覆盖内联样式 */
+}  /*应该要改这里*/
 
 /* Tasks
 */
