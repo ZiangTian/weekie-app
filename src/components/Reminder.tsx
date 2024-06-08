@@ -6,11 +6,12 @@ interface ReminderProps {
   backgroundColor: string;
   count: number;
   name: string;
+  onClick: ()=> void;
 }
 
-const Reminder: React.FC<ReminderProps> = ({ backgroundColor, count, name }) => {
+const Reminder: React.FC<ReminderProps> = ({ backgroundColor, count, name, onClick}) => {
   return (
-    <div className="reminder-container">
+    <div className="reminder-container" onClick={onClick}> 
       <div className="reminder-content">
         <div className="reminder-left">
           <div className="reminder-icon-container" style={{ backgroundColor }}>

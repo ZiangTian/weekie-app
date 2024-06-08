@@ -45,6 +45,7 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
     const loadTasks = async () => {
       const loadedTasks = await getTasks();
       console.log(loadedTasks)
+      console.log(tasks)
       setTasks(loadedTasks.map(
         // set the string to moment object
         i => ({
@@ -54,6 +55,8 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
           deadLine: moment(i.deadLine),
         }
       )));
+      
+      
     };
 
     loadTasks();
@@ -116,7 +119,7 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
     }
 
     const handleModify=(values:TaskT)=>{
-      
+      console.log(values)
       setTasks([...tasks.filter(i=>i.taskID!==activeTaskKey),values])
       message.success('Successfully Modified')
     }

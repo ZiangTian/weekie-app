@@ -132,7 +132,7 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
         </div>
 
         <div className="matList">
-          <Lists/>
+          <Lists onSelectTag={filterTasksByTag}/>
         </div>
 
         
