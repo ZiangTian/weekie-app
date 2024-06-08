@@ -40,6 +40,9 @@ const Home: React.FC = () => {
     const filtered = tasks.filter(task => task.tag === tag);
     setFilteredTasks(filtered);
   };
+  const resetTaskFilter = () => {
+    setFilteredTasks(tasks);
+  };
 
   return (
     <div className="home-page">
@@ -48,7 +51,7 @@ const Home: React.FC = () => {
       </div>
       
       <div className="menu">
-        <Menu />
+        <Menu resetTaskFilter={resetTaskFilter}/>
       </div>
       
       <div className="emat">

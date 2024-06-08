@@ -8,7 +8,11 @@ const generateColor = (index: number) => {
   return `hsl(${hue}, 70%, 50%)`;
 };
 
-const List = () => {
+interface ListProps {
+  onSelectTag: (tag: string) => void;
+}
+
+const List: React.FC<ListProps> = ({ onSelectTag }) =>  {
   
   const [reminders, setReminders] = useState<{ backgroundColor: string, count: number, name: string }[]>([]);
 
@@ -63,6 +67,7 @@ const List = () => {
             backgroundColor={reminder.backgroundColor}
             count={reminder.count}
             name={reminder.name}
+            onClick={() => onSelectTag(reminder.name)}
           />
         ))}
       </div>

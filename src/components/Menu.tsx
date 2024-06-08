@@ -3,7 +3,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import './MenuStyles.css';
 import { images } from '../assets/images';
 
-const Menu: React.FC = () => {
+interface MenuProps {
+  resetTaskFilter?: () => void; // Note the optional parameter
+}
+
+const Menu: React.FC<MenuProps> = ({ resetTaskFilter }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [activePage, setActivePage] = React.useState<'home' | 'profile'>(() => {
@@ -24,6 +28,12 @@ const Menu: React.FC = () => {
     setActivePage(page);
     navigate(`/${page}`);
   };
+  const handleLogoClick = () => {
+    if (resetTaskFilter && activePage === 'home') {
+      resetTaskFilter();
+    }
+  };
+
 
   return (
     <div className="menu-container">
@@ -31,6 +41,7 @@ const Menu: React.FC = () => {
         src={images['iconLogo']} 
         alt="iconLogo"
         className="menu-logo"
+        onClick={handleLogoClick}
       />
 
       <div 
