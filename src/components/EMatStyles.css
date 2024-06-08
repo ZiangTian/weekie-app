@@ -51,9 +51,18 @@
   /* font-size: 320px; */
   /* left: 50%; */
 }
+.central:hover {
+  cursor: pointer;
+
+}
+
 
 .quadrant {
   position: absolute;
+}
+
+.quadrant:hover{
+  cursor: pointer;
 }
 
 .top-left-quadrant {
@@ -108,3 +117,41 @@
   /* padding: 0 10px; */
   box-sizing: border-box;
 }
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  position: absolute; 
+  top: 465px; 
+  left: 30px; 
+}
+
+
+.input-container input {
+  width: 400px; 
+  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px; 
+}
+
+
+.input-container button {
+  margin-left: 20px;
+  width: 40px; 
+  height: 40px; 
+  background: url('../assets/search.png') no-repeat center center; 
+  background-size: cover; 
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.input-container button:hover {
+  transform: scale(1.1); 
+}
+
+
+

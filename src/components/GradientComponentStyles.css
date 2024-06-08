@@ -31,6 +31,13 @@
   word-wrap: break-word;
 }
 
+.gradient-text:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  cursor: pointer;
+  color: #EFEFEF; /* Slightly lighter color for hover effect */
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 
 .gradient-subelement {
   width: 26px;

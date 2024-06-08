@@ -39,6 +39,15 @@
   margin-bottom: 50px;
 }
 
+.menu-item:hover {
+  background-color: #6382B5; 
+  cursor: pointer; 
+  border-radius: 50%; /* 将阴影部分设置为圆形 */
+  width: 70px; 
+  height: 70px; 
+}
+
+
 .menu-icon {
   margin-bottom: 8px;
   z-index: 2;
@@ -55,9 +64,16 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  /* background: #2D3142; */
   border-radius: 30px;
   z-index: 1;
   top: -20px;
   right: -6.8px;
+}
+
+.menu-item:hover .menu-icon {
+  transform: scale(1.2); 
+}
+
+.menu-item:hover .menu-text {
+  transform: scale(1.2); 
 }

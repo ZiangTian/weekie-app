@@ -14,6 +14,7 @@ import {TaskT} from './MainTask'
 import { getTasks, addTask, updateTask, removeTask } from './TaskStorage';
 import { images } from '../assets/images';
 
+
 interface EMatProps {
   taskList: TaskT[];
   filterTasksByGradient: (importance: boolean, urgency: boolean) => void;
@@ -24,6 +25,7 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
 
   const [visible, setVisible] = useState(false);
   const [tasks,setTasks]=useState<TaskT[]>([])
+  const [inputValue, setInputValue] = useState('');
   const open = () => {
     console.log("open called")
     setVisible(true);
@@ -88,6 +90,12 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
   const UserFormModal = withModal({ title: 'AddTask' }, { afterSubmit })(React.forwardRef(UserForm));
   // const EnhancedUserForm = withModal({ title: 'AddTask' }, { afterSubmit })(UserForm);
 
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value);
+
+  const handleButtonClick = () => {
+    console.log("Input Value:", inputValue);
+  };
 
   return (
     <div className="outer-container">
@@ -130,6 +138,13 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
             <GradientComponent number={countTasks(false, false)} />
         
         </div>
+
+
+        <div className="input-container">
+          <input value={inputValue} onChange={handleInputChange} placeholder="Enter text" />
+          <button onClick={handleButtonClick}></button>
+        </div>
+
 
         <div className="matList">
           <Lists/>

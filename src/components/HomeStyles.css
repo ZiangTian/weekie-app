@@ -75,8 +75,38 @@ html, body {
   padding-right:40px ;
   padding-top: 80px;
   padding-bottom: 84px;
-
+  position: relative; 
 }
+
 .add_task{
  margin-top: 20px;
 }
+
+.switchview {
+  position: absolute;
+  top: 40px;
+  right: 120px;
+  z-index: 999; 
+
+}
+
+.switchview button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease; 
+}
+
+.switchview button:hover {
+  transform: scale(1.1); 
+}
+
+.switchview img {
+  width: 50px; 
+  height: 50px;   
+  margin-left: 8px; 
+  
+}
+
