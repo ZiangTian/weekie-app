@@ -1,15 +1,22 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import './InfoFormStyles.css';
-import {images} from '../assets/images';
+import { images } from '../assets/images';
 
 const InfoForm: React.FC = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
-  const saveUserInfo = () => {
-    console.log('User Info:', { firstName, lastName, email });
+
+  
+  const saveFirstName = () => {
+    console.log('First Name:', firstName);
   };
+
+  const saveLastName = () => {
+    console.log('Last Name:', lastName);
+  };
+
 
   const handleLogout = () => {
     console.log('User logged out');
@@ -17,15 +24,12 @@ const InfoForm: React.FC = () => {
   };
 
   return (
-
     <div className="info-form-container">
-
       <div className="info-form-picture">
         <div className="info-form-picture-frame">
-          <img src={images['pfp']}  alt="Profile" className="info-form-picture-image" />
+          <img src={images['pfp']} alt="Profile" className="info-form-picture-image" />
         </div>
       </div>
-
 
       <div className="info-form-row">
         <div className="info-form-field">
@@ -36,8 +40,10 @@ const InfoForm: React.FC = () => {
             value={firstName}
             placeholder="Killan"
             onChange={(e) => setFirstName(e.target.value)}
-            onBlur={saveUserInfo}
           />
+          <button onClick={saveFirstName} className="info-form-save-button">
+            Save
+          </button>
         </div>
 
         <div className="info-form-field">
@@ -48,23 +54,23 @@ const InfoForm: React.FC = () => {
             value={lastName}
             placeholder="James"
             onChange={(e) => setLastName(e.target.value)}
-            onBlur={saveUserInfo}
           />
+          <button onClick={saveLastName} className="info-form-save-button">
+            Save
+          </button>
         </div>
       </div>
 
       <div className="info-form-field email-field">
         <label className="info-form-label">Email</label>
         <div className="info-form-input-with-icon">
-        <img src={images['iconMail']}  alt="Profile" className="info-form-icon" />
-
-        <input
+          <img src={images['iconMail']} alt="Profile" className="info-form-icon" />
+          <input
             className={`info-form-input-em email-input ${!email ? 'placeholder' : 'filled'}`}
             type="email"
             value={email}
             placeholder="killanjames@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
-            onBlur={saveUserInfo}
           />
         </div>
       </div>
