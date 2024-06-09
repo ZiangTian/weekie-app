@@ -104,11 +104,6 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
   
     const handleFinish =(taskID:string)=>{
       setTasks([...tasks.filter(i=>i.taskID!==taskID)])
-      // api(apiConfig.create.url).then(data =>{
-      //   console.log(data,'api');
-      // }).catch(e=>{
-      //   console.log(e);
-      // })
     }
 
     const handleRemove =(taskID:string)=>{
@@ -172,7 +167,7 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
         />
       ))}
       <TaskDetail task={activeTask}
-      onClose={()=>{
+      onClose={()=>{ // click anywhere to close
         setActiveTaskKey('');
       }}
       onSubmit={handleModify}

@@ -16,6 +16,7 @@
     "@mui/material": "5.15.10",
     "@mui/x-date-pickers": "6.19.4",
     "antd": "^5.17.3",
+    "axios": "^1.7.2",
     "date-fns": "2.30.0",
     "idb": "^8.0.0",
     "loader-utils": "3.2.1",
