@@ -42,7 +42,7 @@ const App: React.FC = () => {
           )
         }
       />
-      <Route path="/signup" element={<SignUp setIsCompleted={setIsCompleted}  />} />
+      {/* <Route path="/signup" element={<SignUp setIsCompleted={setIsCompleted}  />} /> */}
       <Route
         path="/profile"
         element={

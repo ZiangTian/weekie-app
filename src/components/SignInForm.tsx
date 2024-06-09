@@ -64,8 +64,7 @@ const SignInForm: React.FC<SignInFormProps> = ({
         <button type="submit" className="signin-button">Sign in</button>
       </div>
       <div className="signin-footer">
-        <span>Don't have an account?</span>
-        <a href="/signup">Sign up now</a>
+      <span>New user will be assigned a new account upon completion</span>
       </div>
     </form>
   );
