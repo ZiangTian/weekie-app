@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';
 import Profile from './components/Profile'; // 导入 Profile 组件
+import SignUp from './components/SignUp'; // 导入 SignUp 组件
 import { Scheduler } from "@aldabil/react-scheduler";
 import { EVENTS } from "./events";
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+    ()=>{
+      return localStorage.getItem('isAuthenticated')==='true'?true:false
+    }
+  );
+
+  useEffect(() => {
+    localStorage.setItem('isAuthenticated',isAuthenticated.toString());
+  }, [isAuthenticated]);
+  
+  const [isCompleted, setIsCompleted] = useState(false);
   
 //     /* test home */
 //   return (
@@ -31,6 +42,7 @@ const App: React.FC = () => {
           )
         }
       />
+      <Route path="/signup" element={<SignUp setIsCompleted={setIsCompleted}  />} />
       <Route
         path="/profile"
         element={

@@ -1,0 +1,170 @@
+.signin-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直居中 */
+    align-items: center;
+    gap: 32px; /* 增加间距 */
+    padding: 40px; /* 增加内边距 */
+    box-sizing: border-box; /* 确保内边距包含在总高度和宽度中 */
+  }
+  
+  .signin-box {
+    width: 100%; /* 占满父容器宽度 */
+    max-width: 500px; /* 增加最大宽度 */
+    border-radius: 12px; /* 增加圆角 */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* 使子元素撑满宽度 */
+    gap: 40px; /* 增加间距 */
+    padding: 32px; /* 增加内边距 */
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 增加阴影 */
+    box-sizing: border-box; /* 确保内边距包含在总高度和宽度中 */
+  }
+  
+  .signin-header {
+    color: #1A1A1A;
+    font-size: 24px; /* 增加字体大小 */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 32px; /* 调整行高 */
+    text-align: center; /* 居中对齐 */
+  }
+  
+  .signin-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* 增加间距 */
+  }
+  
+  .signin-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 增加间距 */
+  }
+  
+  .signin-label {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #333333;
+    font-size: 14px; /* 增加字体大小 */
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    line-height: 18px; /* 调整行高 */
+    letter-spacing: 0.3px;
+  }
+  
+  .signin-input-container {
+    width: 100%;
+    height: 56px; /* 增加高度 */
+    position: relative;
+  }
+  
+  .signin-input {
+    width: 100%;
+    height: 100%;
+    padding: 12px 20px; /* 增加内边距 */
+    border: 1px solid #E5E5E5; /* 增加边框厚度 */
+    border-radius: 8px; /* 增加圆角 */
+    background: #F2F2F2;
+    font-size: 16px; /* 增加字体大小 */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #808080;
+    box-sizing: border-box; /* 确保内边距包含在总高度和宽度中 */
+  }
+  
+  .signin-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* 增加间距 */
+  }
+  
+  .remember-me input {
+    width: 24px; /* 增加尺寸 */
+    height: 24px; /* 增加尺寸 */
+  }
+  
+  .remember-me label {
+    color: #1A1A1A;
+    font-size: 14px; /* 增加字体大小 */
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    line-height: 20px; /* 调整行高 */
+    letter-spacing: 0.3px;
+  }
+  
+  .forgot-password {
+    color: #007AFF;
+    font-size: 14px; /* 增加字体大小 */
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    line-height: 20px; /* 调整行高 */
+    letter-spacing: 0.3px;
+    text-decoration: none; /* 去掉下划线 */
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline; /* 悬停时显示下划线 */
+  }
+  
+  .signin-button {
+    width: 100%;
+    height: 56px; /* 增加高度 */
+    background: #F4BE4B;
+    border-radius: 8px; /* 增加圆角 */
+    font-size: 16px; /* 增加字体大小 */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    line-height: 56px; /* 使文本垂直居中 */
+    letter-spacing: 0.3px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* 增加过渡效果 */
+  }
+  
+  .signin-button:hover {
+    background: #e5ac42; /* 悬停时的背景颜色 */
+  }
+  
+  .signin-footer {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;
+    gap: 12px; /* 增加间距 */
+  }
+  
+  .signin-footer span {
+    color: #1A1A1A;
+    font-size: 14px; /* 增加字体大小 */
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    line-height: 20px; /* 调整行高 */
+    letter-spacing: 0.3px;
+  }
+  
+  .signin-footer a {
+    color: #007AFF;
+    font-size: 14px; /* 增加字体大小 */
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    line-height: 20px; /* 调整行高 */
+    letter-spacing: 0.3px;
+    text-decoration: none; /* 去掉下划线 */
+  }
+  
+  .signin-footer a:hover {
+    text-decoration: underline; /* 悬停时显示下划线 */
+  }
+  
