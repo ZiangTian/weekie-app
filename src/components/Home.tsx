@@ -113,7 +113,23 @@ const Home: React.FC = () => {
                 default: "Event description...",
                 config: { label: "Details", multiline: true, rows: 4 }
               }
+
             ]}
+
+            week={{
+              weekDays: [0, 1, 2, 3, 4, 5, 6],
+              weekStartOn: 6,
+              startHour: 6,
+              endHour: 24,
+              step: 90,
+            }}
+
+            day={{
+              startHour: 6, 
+              endHour: 24, 
+              step: 90,
+              }}
+
             events={EVENTS} 
           />
         </div>

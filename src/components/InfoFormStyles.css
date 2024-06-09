@@ -147,9 +147,9 @@
 }
 
 .placeholder {
-  color: #aaa; /* 占位符的字体颜色 */
+  color: #aaa; 
 }
 
 .filled {
-  color: white; /* 输入的字体颜色 */
+  color: white; 
 }

@@ -56,7 +56,7 @@
 .central:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
-    opacity: 0.8; /* 改变透明度 */
+    opacity: 0.8; 
 
   }
   
@@ -65,9 +65,11 @@
   position: absolute;
 }
 
-.quadrant:hover{
+.quadrant:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(244, 242, 242, 0.6); /* 添加阴影和高光效果 */
   cursor: pointer;
 }
+
 
 .top-left-quadrant {
   top: 74px;

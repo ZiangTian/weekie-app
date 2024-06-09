@@ -28,6 +28,11 @@
   margin-bottom: 40px;
 }
 
+.menu-logo:hover {
+  transform: scale(1.1); /* 放大1.1倍 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
 .menu-item {
   position: relative;
   width: 90px;

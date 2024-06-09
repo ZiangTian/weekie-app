@@ -1,13 +1,20 @@
-.reminder-container {
-  height: 75px;
-  /* padding-left: 11px; */
-  border-radius: 12px;
-  width: 440px;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+  .reminder-container {
+    height: 75px;
+    /* padding-left: 11px; */
+    border-radius: 12px;
+    width: 440px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+
+  .reminder-container:hover {
+    box-shadow: 0 4px 8px rgba(239, 131, 84, 0.40), 0 0 15px rgba(239, 131, 84, 0.40); /* 添加阴影和高光效果 */
+    opacity: 0.8; /* 增加透明效果 */
+    cursor: pointer;
+  }
 
 .reminder-content {
   height: 100%;
