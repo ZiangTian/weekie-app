@@ -1,94 +1,24 @@
-export const EVENTS = [
+import type {
+  ProcessedEvent,
+  SchedulerHelpers
+} from "@aldabil/react-scheduler/types";
+import moment from "moment";
+
+const EVENTS: ProcessedEvent[] = [
   {
     event_id: 1,
-    title: "Event 1",
-    start: new Date(new Date(new Date().setHours(9)).setMinutes(0)),
-    end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    Importance:1,
-    Urgent:1,
-    disabled: true,
-    draggable: false,
-    admin_id: [1, 2, 3, 4],
-  },
-  {
-    event_id: 2,
-    title: "Event 2",
-    start: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
-    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    admin_id: 2,
-    Importance:1,
-    Urgent:1,
-    draggable: false,
-    color: "#50b500",
-  },
-  {
-    event_id: 3,
-    title: "Event 3",
-    start: new Date(new Date(new Date().setHours(11)).setMinutes(0)),
-    end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
-    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    Importance:1,
-    Urgent:1,
-    admin_id: 1,
-    editable: false,
-    deletable: false,
-    draggable: false,
-  },
-  {
-    event_id: 4,
-    title: "Event 4",
-    start: new Date(
-      new Date(new Date(new Date().setHours(9)).setMinutes(30)).setDate(
-        new Date().getDate() - 2
-      )
-    ),
-    end: new Date(
-      new Date(new Date(new Date().setHours(11)).setMinutes(0)).setDate(
-        new Date().getDate() - 2
-      )
-    ),
-    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    Importance:1,
-    Urgent:1,
-    admin_id: 2,
-    color: "#900000",
-    draggable: false,
-  },
-  {
-    event_id: 5,
-    title: "Event 5",
-    start: new Date(
-      new Date(new Date(new Date().setHours(10)).setMinutes(30)).setDate(
-        new Date().getDate() - 2
-      )
-    ),
-    end: new Date(
-      new Date(new Date(new Date().setHours(14)).setMinutes(0)).setDate(
-        new Date().getDate() - 2
-      )
-    ),
-    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    Importance:1,
-    Urgent:1,
-    admin_id: 2,
-    editable: true,
-    draggable: false,
-  },
-  {
-    event_id: 6,
-    title: "Event 6",
-    start: new Date(
-      new Date(new Date(new Date().setHours(10)).setMinutes(30)).setDate(
-        new Date().getDate() - 4
-      )
-    ),
-    end: new Date(new Date(new Date().setHours(14)).setMinutes(0)),
-    deadline: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    Importance:1,
-    Urgent:1,
-    admin_id: 2,
-    draggable: false,
-  },
+    title: "Task 1",
+    start: new Date("2023-06-01T10:00:00"),
+    end: new Date("2023-06-01T11:00:00"),
+    description: "This is a task",
+    Importance: true,
+    Urgency: true,
+    tag: "Work",
+    taskID: "1",
+    startTime: moment("2023-06-01T10:00:00"),
+    endTime: moment("2023-06-01T11:00:00"),
+    deadLine: moment("2023-06-01T12:00:00"),
+    desc: "Description of Task 1"
+  }
+  // Add more events here
 ];

@@ -7,12 +7,25 @@ import {TaskT} from './MainTask'
 
 import './HomeStyles.css';
 import { Scheduler } from '@aldabil/react-scheduler';
-import { EVENTS } from '../events';
+// import { EVENTS } from '../events';
 import Reminder from '../components/Reminder';
 import List from '../components/Lists';
 import { getTasks } from './TaskStorage';
 import schedulerIcon from '../assets/schedule.png';
 import listIcon from '../assets/list.png';
+
+
+import { TextField, Button, DialogActions } from "@mui/material";
+// import type {
+//   ProcessedEvent,
+//   SchedulerHelpers
+// } from "@aldabil/react-scheduler/types";
+import moment from "moment";
+
+// interface CustomEditorProps {
+//   scheduler: SchedulerHelpers;
+// }
+
 
 
 const Home: React.FC = () => {
@@ -44,6 +57,7 @@ const Home: React.FC = () => {
     setFilteredTasks(tasks);
   };
 
+
   return (
     <div className="home-page">
       <div className="header">
@@ -72,66 +86,57 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <div className='scheduler'>
-          <Scheduler 
-            fields={[
-              {
-                name: "deadline",
-                type: "date",
-                config: {
-                  label: "deadline",
-                  md: 6,
-                  type: "datetime"
-                }
-              },
-              {
-                name: "Importance",
-                type: "select",
-                options: [
-                  { id: 1, text: "Important", value: 1 },
-                  { id: 2, text: "Not Important", value: 0 }
-                ],
-                config: { label: "Importance", required: true, errMsg: "Plz Select Importance" }
-              },
-              {
-                name: "Urgency",
-                type: "select",
-                options: [
-                  { id: 1, text: "Urgent", value: 1 },
-                  { id: 2, text: "Not Urgent", value: 0 }
-                ],
-                config: { label: "Urgency", required: true, errMsg: "Plz Select Urgency" }
-              },
-              {
-                name: "tag",
-                type: "input",
-                default: "Null",
-                config: { label: "tag", multiline: false, rows: 1 }
-              },
-              {
-                name: "Description",
-                type: "input",
-                default: "Event description...",
-                config: { label: "Details", multiline: true, rows: 4 }
-              }
-
-            ]}
-
-            week={{
-              weekDays: [0, 1, 2, 3, 4, 5, 6],
-              weekStartOn: 6,
-              startHour: 6,
-              endHour: 24,
-              step: 90,
-            }}
-
-            day={{
-              startHour: 6, 
-              endHour: 24, 
-              step: 90,
+      <Scheduler
+      // events={}
+      day = {null}
+      month = {null}
+      week={{ 
+        weekDays: [0, 1, 2, 3, 4, 5, 6],
+        weekStartOn: 6,
+        startHour: 0,
+        endHour: 24,
+        step: 120,
+        cellRenderer: ({ height, start, onClick, ...props }) => {
+          // Fake some condition up
+          const hour = start.getHours();
+          const disabled = hour === 14;
+          const restProps = disabled ? {} : props;
+          return (
+            <Button
+              style={{
+                height: "100%",
+                background: disabled ? "#eee" : "transparent",
+                cursor: disabled ? "not-allowed" : "pointer"
               }}
-
-            events={EVENTS} 
-          />
+              onClick={() => {
+                if (disabled) {
+                  return alert("Opss");
+                }
+                // onClick();
+              }}
+              disableRipple={disabled}
+              // disabled={disabled}
+              {...restProps}
+            ></Button>
+          );
+        }
+      }}
+      viewerExtraComponent={(fields, event) => {
+        const task = event as unknown as TaskT;
+        return (
+          <div>
+            <p><strong>Title:</strong> {task.title}</p>
+            <p><strong>Tag:</strong> {task.tag}</p>
+            <p><strong>Start Time:</strong> {moment(task.startTime).format("YYYY-MM-DD HH:mm")}</p>
+            <p><strong>End Time:</strong> {moment(task.endTime).format("YYYY-MM-DD HH:mm")}</p>
+            <p><strong>Deadline:</strong> {moment(task.deadLine).format("YYYY-MM-DD HH:mm")}</p>
+            <p><strong>Importance:</strong> {task.Importance ? "Important" : "Not Important"}</p>
+            <p><strong>Urgency:</strong> {task.Urgency ? "Urgent" : "Not Urgent"}</p>
+            <p><strong>Description:</strong> {task.desc || "No description"}</p>
+          </div>
+        );
+      }}
+      />
         </div>
       )}
     </div>

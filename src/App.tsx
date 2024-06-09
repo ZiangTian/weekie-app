@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Profile from './components/Profile'; // 导入 Profile 组件
 import SignUp from './components/SignUp'; // 导入 SignUp 组件
 import { Scheduler } from "@aldabil/react-scheduler";
-import { EVENTS } from "./events";
+// import { EVENTS } from "./events";
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
