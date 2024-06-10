@@ -7,8 +7,8 @@ interface Iprops{
     startTime: moment.Moment;
     endTime: moment.Moment;
     deadLine: moment.Moment;
-    Importance:boolean;
-    Urgency:boolean;
+    importance:boolean;
+    urgency:boolean;
     tag:string;
     desc:string | undefined;
     active:boolean
@@ -33,9 +33,9 @@ export default function TaskItem(props:Iprops){
               </div>
            </div>
             <div className="task-item_status">
-              <button className="task-item_finish-btn" onClick={onFinish}>
+              {/* <button className="task-item_finish-btn" onClick={onFinish}>
               Done
-              </button>
+              </button> */}
               <button className="task-item_dele-btn" onClick={onRemove}>
               Delete
               </button>

@@ -112,8 +112,8 @@ const UserForm = (props: PropsType, ref?: React.ForwardedRef<FormInstance>) => {
           <DatePicker showTime format="YYYY-MM-DD HH:mm" placeholder='choose deadline' />
         </Form.Item>
         <Form.Item
-          label="Importance"
-          name="Importance"
+          label="importance"
+          name="importance"
           rules={[{ required: true }]}
         >
           <Select>
@@ -123,8 +123,8 @@ const UserForm = (props: PropsType, ref?: React.ForwardedRef<FormInstance>) => {
         </Form.Item>
 
         <Form.Item
-          label="Urgency"
-          name="Urgency"
+          label="urgency"
+          name="urgency"
           rules={[{ required: true}]}
         >
           <Select>

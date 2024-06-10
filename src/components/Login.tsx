@@ -71,7 +71,7 @@
 // };
 
 // export default Login;
-
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignInForm from './SignInForm';
@@ -87,10 +87,13 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async(e: React.FormEvent,username: string, password: string) => {
     e.preventDefault();
     // 
-    if (username === 'user' && password === 'password') {
+    const response = await axios.get(`http://47.115.213.200/api/login?username=${username}&password=${password}`);
+
+    if (response.data.code=='1') {
+      localStorage.setItem("token",response.data.data.jwt);
       setIsAuthenticated(true);
       navigate('/home');
     } else {
@@ -120,7 +123,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
           password={password}
           onUsernameChange={(e) => setUsername(e.target.value)}
           onPasswordChange={(e) => setPassword(e.target.value)}
-          onSubmit={handleLogin}
+          onSubmit={(e)=>handleLogin(e,username,password)}
         />
       </div>
     </div>

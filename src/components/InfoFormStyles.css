@@ -125,11 +125,34 @@
   cursor: pointer;
   position: absolute;
   left: 730px;
+  top: 550px;
+}
+
+.info-form-save-button {
+  width: 350px;
+  height: 60px;
+  background: #EF8354;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: white;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  left: 730px;
   top: 650px;
 }
-.info-form-logout-button:hover{
+.info-form-save-button:hover {
   transform: scale(1.1);
   opacity: 0.8; 
+}
+
+.info-form-logout-button:hover{
+  transform: scale(1.1);
 }
 
 
@@ -148,27 +171,9 @@
 }
 
 .placeholder {
-  color: #aaa; 
+  color: #aaa; /* 占位符的字体颜色 */
 }
 
 .filled {
-  color: white; 
-}
-
-
-.info-form-save-button {
-  background-color: #EF8354;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  margin-left: 10px;
-}
-
-.info-form-save-button:hover {
-  transform: scale(1.1);
-  opacity: 0.8; 
+  color: white; /* 输入的字体颜色 */
 }

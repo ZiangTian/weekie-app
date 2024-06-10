@@ -2,9 +2,9 @@
     position: relative;
     padding: 10px;
     height: 80px;
-    width: 900px;
-    bottom:820px ;
-    left: 700px;
+    width: 850px;
+    top:5px;
+    left: 0px;
     display: flex;
     /* gap:400px; */
     /* color:white; */
@@ -73,18 +73,7 @@
         margin-bottom: 2px;
        
     }
-.task-item_finish-btn{
-    border: none;
-    background:linear-gradient(120deg, rgba(255, 130, 77, 0.706) 0%, rgba(78, 92, 116, 0.20) 100%); ;
-    color: white;
-    border-radius: 2px;
-    cursor: pointer;
-    width: 80px;
-    height: 30px;
-    left: 490px;
-    font-size: 16px;
 
-}
 .task-item_dele-btn{
     border-radius: 2px;
     background:rgb(247, 236, 218);

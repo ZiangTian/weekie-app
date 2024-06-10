@@ -20,11 +20,18 @@ export type TaskT={
   startTime: moment.Moment
   endTime: moment.Moment
   deadLine: moment.Moment
-  Importance:boolean
-  Urgency:boolean
+  importance:boolean
+  urgency:boolean
   tag:string
   desc?: string;
 }
+export type usr={
+  firstName:string
+  lastName:string
+  email:string
+}
+
+
 
 interface MainTaskProps {
   taskList: TaskT[];
@@ -82,8 +89,8 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
     //     startTime: moment(values.startTime.toDate()),
     //     endTime: moment(values.endTime.toDate()),
     //     deadLine:moment(values.deadLine.toDate()),
-    //     Importance: values.Importance,
-    //     Urgency: values.Urgency,
+    //     importance: values.importance,
+    //     urgency: values.urgency,
     //     tag: values.tag,
     //     desc: values.desc,
     //     taskID:taskID,
@@ -104,6 +111,11 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
   
     const handleFinish =(taskID:string)=>{
       setTasks([...tasks.filter(i=>i.taskID!==taskID)])
+      // api(apiConfig.create.url).then(data =>{
+      //   console.log(data,'api');
+      // }).catch(e=>{
+      //   console.log(e);
+      // })
     }
 
     const handleRemove =(taskID:string)=>{
@@ -121,34 +133,9 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
   return (
     <div className="outer-container">
         <div className="Task_background"></div>
-        <div className="task_title">TaskList</div>
-        {/* <div>
-        <div className="add-task-btn" onClick={open}>
-            <PlusIcon />
-            <div className='add-task-text'>Add Task</div>
-        </div>
-        <UserFormModal open={visible} onCancel={close} onOk={submit} />
-      </div> */}
-
-
-      {/* {tasks.map((task, index) => (
-        <TaskItem
-          key={index}
-          title={task.title}
-          startTime={task.startTime}
-          endTime={task.endTime}
-          deadLine={task.deadLine}
-          Importance={task.Importance}
-          Urgency={task.Urgency}
-          tag={task.tag}
-          desc={task.desc}
-          active={activeTaskKey===task.taskID}
-          onClick={()=>setActiveTaskKey(task.taskID)}
-          onFinish={()=>handleFinish(task.taskID)}
-          onRemove={()=>handleRemove(task.taskID)}
-        />
-      ))} */}
-
+        <div className="task_title">TaskList
+        
+     <div className="task_list_container">
      {taskList.map((task, index) => (
         <TaskItem
           key={index}
@@ -156,8 +143,8 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
           startTime={task.startTime}
           endTime={task.endTime}
           deadLine={task.deadLine}
-          Importance={task.Importance}
-          Urgency={task.Urgency}
+          importance={task.importance}
+          urgency={task.urgency}
           tag={task.tag}
           desc={task.desc}
           active={activeTaskKey===task.taskID}
@@ -166,8 +153,10 @@ const Task: React.FC<MainTaskProps> = ({ taskList }) => {
           onRemove={()=>handleRemove(task.taskID)}
         />
       ))}
+      </div>
+      </div>
       <TaskDetail task={activeTask}
-      onClose={()=>{ // click anywhere to close
+      onClose={()=>{
         setActiveTaskKey('');
       }}
       onSubmit={handleModify}

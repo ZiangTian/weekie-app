@@ -1,6 +1,6 @@
 .Task_background {
-    width: 960px;
-    height: 950px;
+    width: 1000px;
+    height: 960px;
     background: linear-gradient(90deg, #212430 100%, #141722 0%);
     border-radius: 15px;
     position: relative; 
@@ -22,7 +22,7 @@
     position: absolute;
     display: flex;
     top: 140px;
-    left: 720px;
+    left: 720px;    
 }
 .add-task-btn{
    
@@ -43,8 +43,38 @@
         box-shadow: 0 0 2px 2px #787878;
     }
 }
+
+
 .add-task-text{
     color: #787878;
     margin-left: 10px;
 
 }
+
+
+.task_list_container {
+    position:absolute;
+    top:50px;
+    height: 860px;
+    width: 920px;
+    padding-left: 12px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column; 
+    overflow-y: auto;  
+  }
+
+
+  .task_list_container::-webkit-scrollbar {
+    width: 16px;
+  }
+  
+  .task_list_container::-webkit-scrollbar-track {
+    background: #141722;
+  }
+  
+  .task_list_container::-webkit-scrollbar-thumb {
+    background: #787777 ;
+    min-height: 5px;
+    border-radius: 8px;
+  }

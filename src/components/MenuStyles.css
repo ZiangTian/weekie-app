@@ -31,6 +31,7 @@
 .menu-logo:hover {
   transform: scale(1.1); /* 放大1.1倍 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  cursor: pointer; 
 }
 
 .menu-item {

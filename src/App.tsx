@@ -1,34 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';
 import Profile from './components/Profile'; // 导入 Profile 组件
-import SignUp from './components/SignUp'; // 导入 SignUp 组件
-import { Scheduler } from "@aldabil/react-scheduler";
-// import { EVENTS } from "./events";
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
-    ()=>{
-      return localStorage.getItem('isAuthenticated')==='true'?true:false
-    }
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  });
 
   useEffect(() => {
-    localStorage.setItem('isAuthenticated',isAuthenticated.toString());
+    localStorage.setItem('isAuthenticated', String(isAuthenticated));
   }, [isAuthenticated]);
-  
-  const [isCompleted, setIsCompleted] = useState(false);
-  
-//     /* test home */
-//   return (
-//     <Routes>
-//       <Route path="/home" element={<Home />} />
-//       <Route path="*" element={<Navigate to="/home" />} />
-//     </Routes>
-//   );
 
-// }
   return (
     <Routes>
       <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
@@ -42,7 +26,6 @@ const App: React.FC = () => {
           )
         }
       />
-      {/* <Route path="/signup" element={<SignUp setIsCompleted={setIsCompleted}  />} /> */}
       <Route
         path="/profile"
         element={
@@ -56,8 +39,6 @@ const App: React.FC = () => {
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
-
-
- };
+};
 
 export default App;

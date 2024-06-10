@@ -19,8 +19,9 @@ export default function TaskDetail(props: IProps) {
 
   useEffect(() => {
     if (task) {
-      console.log(task);
+      console.log("task passed  to  taskdetail ", task);
       form.setFieldsValue({
+  
         ...task,
         startTime: task.startTime,
         endTime: task.endTime,
@@ -52,11 +53,11 @@ export default function TaskDetail(props: IProps) {
     console.log('values', values);
     const updatedTask: TaskT = {
       title: RealTitle,
-      startTime: values.startTime || task?.startTime,
-      endTime: values.endTime || task?.endTime,
-      deadLine: values.deadLine || task?.deadLine,
-      Importance: values.Importance || task?.Importance,
-      Urgency: values.Urgency || task?.Urgency,
+      startTime: moment(values.startTime) ,
+      endTime: moment(values.endTime) ,
+      deadLine: moment(values.deadLine),
+      importance: values.importance || task?.importance,
+      urgency: values.urgency || task?.urgency,
       tag: values.tag || task?.tag,
       desc: values.desc || task?.desc,
       taskID: task?.taskID || '',
@@ -158,8 +159,8 @@ export default function TaskDetail(props: IProps) {
         </Form.Item>
 
         <Form.Item
-          label="Importance"
-          name="Importance"
+          label="importance"
+          name="importance"
           rules={[{ required: true }]}
         >
           <Select>
@@ -169,8 +170,8 @@ export default function TaskDetail(props: IProps) {
         </Form.Item>
 
         <Form.Item
-          label="Urgency"
-          name="Urgency"
+          label="urgency"
+          name="urgency"
           rules={[{ required: true }]}
         >
           <Select>

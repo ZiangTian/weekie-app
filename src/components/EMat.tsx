@@ -48,7 +48,7 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
   }, []);
 
   const countTasks = (importance: boolean, urgency: boolean) => {
-    return tasks.filter(task => task.Importance === importance && task.Urgency === urgency).length;
+    return tasks.filter(task => task.importance === importance && task.urgency === urgency).length;
   };
 
   const submit = (ref: MutableRefObject<FormInstance>) => {
@@ -62,8 +62,8 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
       startTime: values.startTime.toISOString(),
       endTime: values.endTime.toISOString(),
       deadLine: values.deadLine.toISOString(),
-      Importance: values.Importance,
-      Urgency: values.Urgency,
+      importance: values.importance,
+      urgency: values.urgency,
       tag: values.tag,
       desc: values.desc,
       taskID: taskID,
@@ -93,41 +93,51 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
     //   },
     //   body: JSON.stringify({ input: inputValue }),
     // });
-
+    const token=localStorage.getItem("token");
     try {
-      const response = await axios.post('http://your-backend-url/api/process', 
-        { text: currentInputValue },
-        { headers: { 'Content-Type': 'application/json' } }
+      const response = await axios.post('http://47.115.213.200/api/AI', 
+        currentInputValue,
+        {
+          headers: {
+            Authorization: token // 使用Token进行认证
+          }
+        }
       );
 
-      const data =  response.data;
+      const data =  response.data.data;
+      console.log("data:  ",data);
+      const id=data.taskID;
+      console.log("id:  ",id)
+      const tasks = await getTasks();
+      console.log("tasks:  ",tasks)
+      const NlpTask = tasks.filter(task => task.taskID ===id)[0];
+
+      console.log("task given by backend", data)
+      console.log("task searched by id from db", NlpTask)
+
+
+      console.log("data:  ",data)
+    
       //根据nlpTask创建任务
           // const data = await response.json();
-      const taskID_ = data.taskID;
-
-      // go search in the db
-
-      /*
-      Home中读数据库的代码
-      用taskID_去数据库中查找对应的task
-      得到后命名为newTask
-
-      const newTask = tasks.find(task => task.taskID === taskID_);
-      const newTask = tasks.filter(task => task.taskID === taskID_)[0]; 
-      */
-
-      // const newTask: TaskT = {
-      //   taskID: data.taskID,
-      //   title: data.title,
-      //   startTime: moment(data.startTime),
-      //   endTime: moment(data.endTime),
-      //   deadLine: moment(data.deadLine),
-      //   Importance: data.Importance,
-      //   Urgency: data.Urgency,
-      //   tag: data.tag,
-      //   desc: data.desc,
-      // };
+      const newTask: TaskT = {
+        taskID: data.taskID,
+        title: data.title,
+        startTime: moment(data.startTime,'YYYY-MM-DD HH:mm:ss'),
+        endTime: moment(data.endTime,'YYYY-MM-DD HH:mm:ss'),
+        deadLine: moment(data.deadLine,'YYYY-MM-DD HH:mm:ss'),
+        // startTime: NlpTask.startTime,
+        // endTime: NlpTask.endTime,
+        // deadLine: NlpTask.deadLine,
+        importance: data.importance,
+        urgency: data.urgency,
+        tag: data.tag,
+        desc: data.desc,
+      };
+      console.log("newTask(event)",  newTask  )
+      window.location.reload()
       setFetchedTask(newTask);
+      console.log("fetched Task", fetchedTask)
 
         setLoading(false);
         setInputValue(''); // 重置输入框
@@ -185,12 +195,13 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
         </div>
 
         {fetchedTask && (
+          
           <TaskDetail
             task={fetchedTask}
             onClose={() => setFetchedTask(null)}
             onSubmit={(modifiedTask) => {
               setTasks([...tasks.filter(task => task.taskID !== modifiedTask.taskID), modifiedTask]);
-              message.success('Successfully Modified');
+              message.success('Successfully Modified');``
             }}
           />
         )}

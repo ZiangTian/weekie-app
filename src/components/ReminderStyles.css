@@ -1,96 +1,96 @@
-  .reminder-container {
-    height: 75px;
-    /* padding-left: 11px; */
-    border-radius: 12px;
-    width: 440px;
-    overflow: hidden;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
+.reminder-container {
+  height: 75px;
+  /* padding-left: 11px; */
+  border-radius: 12px;
+  width: 440px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
 
-  .reminder-container:hover {
-    box-shadow: 0 4px 8px rgba(239, 131, 84, 0.40), 0 0 15px rgba(239, 131, 84, 0.40); /* 添加阴影和高光效果 */
-    opacity: 0.8; /* 增加透明效果 */
-    cursor: pointer;
-  }
+.reminder-container:hover {
+  box-shadow: 0 4px 8px rgba(239, 131, 84, 0.40), 0 0 15px rgba(239, 131, 84, 0.40); /* 添加阴影和高光效果 */
+  opacity: 0.8; /* 增加透明效果 */
+  cursor: pointer;
+}
 
 .reminder-content {
-  height: 100%;
-  padding-left: 12px;
-  background: #141722;
-  border-radius: 15px;
-  overflow: hidden;
-  /* border: 2.5px rgba(255, 255, 255, 0) solid; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+height: 100%;
+padding-left: 12px;
+background: #141722;
+border-radius: 15px;
+overflow: hidden;
+/* border: 2.5px rgba(255, 255, 255, 0) solid; */
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .reminder-left {
-  width: 360px;
-  height: 30px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 12px;
+width: 360px;
+height: 30px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+gap: 12px;
 }
 
 .reminder-icon-container {
-  width: 30px;
-  height: 30px;
-  /* padding: 4px 2px; */
-  border-radius: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+width: 30px;
+height: 30px;
+/* padding: 4px 2px; */
+border-radius: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .reminder-icon {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-family: 'Inter';
-  font-weight: 600;
+text-align: center;
+color: white;
+font-size: 20px;
+font-family: 'Inter';
+font-weight: 600;
 }
 
 .reminder-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 3px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+gap: 3px;
 }
 
 .reminder-text {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-family: 'Inter';
-  font-weight: 400;
+text-align: center;
+color: white;
+font-size: 20px;
+font-family: 'Inter';
+font-weight: 400;
 }
 
 .reminder-right {
-  width: 39px;
-  height: 21px;
-  padding-right: 12px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 6px;
+width: 39px;
+height: 21px;
+padding-right: 12px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+gap: 6px;
 }
 
 .reminder-count {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-family: 'Inter';
-  font-weight: 400;
+text-align: center;
+color: white;
+font-size: 20px;
+font-family: 'Inter';
+font-weight: 400;
 }
 
 .reminder-arrow-container {
-  width: 20px;
-  height: 24px;
-  position: relative;
+width: 20px;
+height: 24px;
+position: relative;
 }
