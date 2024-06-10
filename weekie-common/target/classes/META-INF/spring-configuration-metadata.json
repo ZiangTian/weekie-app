@@ -1,0 +1,46 @@
+{
+  "groups": [
+    {
+      "name": "weekie.jwt",
+      "type": "com.weekie.properties.JwtProperties",
+      "sourceType": "com.weekie.properties.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "weekie.jwt.admin-secret-key",
+      "type": "java.lang.String",
+      "description": "管理端员工生成jwt令牌相关配置",
+      "sourceType": "com.weekie.properties.JwtProperties"
+    },
+    {
+      "name": "weekie.jwt.admin-token-name",
+      "type": "java.lang.String",
+      "sourceType": "com.weekie.properties.JwtProperties"
+    },
+    {
+      "name": "weekie.jwt.admin-ttl",
+      "type": "java.lang.Long",
+      "sourceType": "com.weekie.properties.JwtProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "weekie.jwt.user-secret-key",
+      "type": "java.lang.String",
+      "description": "用户端微信用户生成jwt令牌相关配置",
+      "sourceType": "com.weekie.properties.JwtProperties"
+    },
+    {
+      "name": "weekie.jwt.user-token-name",
+      "type": "java.lang.String",
+      "sourceType": "com.weekie.properties.JwtProperties"
+    },
+    {
+      "name": "weekie.jwt.user-ttl",
+      "type": "java.lang.Long",
+      "sourceType": "com.weekie.properties.JwtProperties",
+      "defaultValue": 0
+    }
+  ],
+  "hints": []
+}

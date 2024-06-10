@@ -1,0 +1,10 @@
+com\weekie\dto\ScheduleDTO$ScheduleDTOBuilder.class
+com\weekie\vo\ScheduleVO$ScheduleVOBuilder.class
+com\weekie\dto\ScheduleDTO.class
+com\weekie\vo\UserVO.class
+com\weekie\vo\ScheduleVO.class
+com\weekie\vo\UserVO$UserVOBuilder.class
+com\weekie\entity\Schedule$ScheduleBuilder.class
+com\weekie\entity\Schedule.class
+com\weekie\entity\User.class
+com\weekie\entity\User$UserBuilder.class

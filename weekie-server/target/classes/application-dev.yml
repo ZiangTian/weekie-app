@@ -1,0 +1,13 @@
+weekie:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 47.115.213.200
+    port: 3306
+    database: sky_take_out
+    username: root
+    password: 222095
+  redis:
+    host: localhost
+    port: 6379
+    password: 222095
+    database: 0

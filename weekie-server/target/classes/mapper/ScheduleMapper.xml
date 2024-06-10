@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weekie.mapper.ScheduleMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into Weekie.schedule ( title, startTime, endTime, user_id, create_time, update_time,deadline,importance,urgency,tag,`desc`,taskID) values (#{title},#{startTime},#{endTime},#{userId},#{createTime},#{updateTime},#{deadline},#{importance},#{urgency},#{tag},#{desc},#{taskID})
+    </insert>
+    <update id="change" parameterType="user">
+        <set>
+            <if test="username != null and username != ''"> username = #{username}, </if>
+            <if test="password != null and password != ''"> password = #{password}, </if>
+            <if test="lastName != null and lastName != ''"> last_name = #{lastName}, </if>
+            <if test="firstName != null and firstName != ''"> first_name = #{firstName},</if>
+            <if test="email != null and email != ''"> email = #{email}, </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+</mapper>
