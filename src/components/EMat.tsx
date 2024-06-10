@@ -103,17 +103,30 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
       const data =  response.data;
       //根据nlpTask创建任务
           // const data = await response.json();
-      const newTask: TaskT = {
-        taskID: data.taskID,
-        title: data.title,
-        startTime: moment(data.startTime),
-        endTime: moment(data.endTime),
-        deadLine: moment(data.deadLine),
-        Importance: data.Importance,
-        Urgency: data.Urgency,
-        tag: data.tag,
-        desc: data.desc,
-      };
+      const taskID_ = data.taskID;
+
+      // go search in the db
+
+      /*
+      Home中读数据库的代码
+      用taskID_去数据库中查找对应的task
+      得到后命名为newTask
+
+      const newTask = tasks.find(task => task.taskID === taskID_);
+      const newTask = tasks.filter(task => task.taskID === taskID_)[0]; 
+      */
+
+      // const newTask: TaskT = {
+      //   taskID: data.taskID,
+      //   title: data.title,
+      //   startTime: moment(data.startTime),
+      //   endTime: moment(data.endTime),
+      //   deadLine: moment(data.deadLine),
+      //   Importance: data.Importance,
+      //   Urgency: data.Urgency,
+      //   tag: data.tag,
+      //   desc: data.desc,
+      // };
       setFetchedTask(newTask);
 
         setLoading(false);
