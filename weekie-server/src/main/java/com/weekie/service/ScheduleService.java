@@ -1,16 +1,23 @@
 package com.weekie.service;
 
+import com.weekie.dto.ScheduleDTO;
 import com.weekie.entity.Schedule;
 import com.weekie.vo.ScheduleVO;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ScheduleService {
     List<ScheduleVO> searchSchedule();
 
+     ScheduleVO getById(int id);
+
+
     void updateSchedule(Schedule schedule);
 
-    void deleteSchedule(Integer id);
+    void deleteSchedule(String uuid);
 
-    Integer addSchedule(Schedule schedule);
+    String addSchedule(ScheduleDTO scheduleDTO);
+
+    ScheduleVO AICreateTask(String taskDesci) throws IOException;
 }

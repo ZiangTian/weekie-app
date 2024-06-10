@@ -1,7 +1,14 @@
 server:
   port: 8080
-
+#  servlet:
+#    session:
+#      timeout: 120000
 spring:
+#  mvc:
+#    async:
+#      request-timeout: 50000
+
+
   profiles:
     active: dev
   main:
@@ -41,5 +48,5 @@ weekie:
     # 设置jwt过期时间
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
-    admin-token-name: token
+    admin-token-name: Authorization
 

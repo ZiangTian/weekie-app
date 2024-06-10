@@ -1,5 +1,6 @@
 package com.weekie.controller;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.weekie.entity.User;
 import com.weekie.result.Result;
 import com.weekie.service.UserService;
@@ -25,8 +26,12 @@ public class UserController {
         return Result.success(userService.read());
     }
     @PostMapping("/api/change")
-    public  Result<UserVO>change( @RequestBody(required = false) User user) throws Exception {
-        if(user!=null) userService.change(user);
+    public  Result<UserVO>change( @RequestBody(required = false) JSONObject user) throws Exception {
+        User u=new User();
+        u.setFirstName(user.getString("firstName"));
+        u.setLastName(user.getString("lastName"));
+        u.setEmail(user.getString("email"));
+        if(user!=null) userService.change(u);
         return Result.success();
     }
 
