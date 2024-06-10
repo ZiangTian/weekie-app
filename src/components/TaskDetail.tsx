@@ -19,9 +19,8 @@ export default function TaskDetail(props: IProps) {
 
   useEffect(() => {
     if (task) {
-      console.log("task passed  to  taskdetail ", task);
+      console.log("task passed to taskdetail ", task);
       form.setFieldsValue({
-  
         ...task,
         startTime: task.startTime,
         endTime: task.endTime,

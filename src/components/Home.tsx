@@ -113,7 +113,7 @@ const Home: React.FC = () => {
            cellRenderer: ({ height, start, onClick, ...props }) => {
           // Fake some condition up
               const hour = start.getHours();
-              const disabled = hour === 14;
+              const disabled = hour === 25;
               const restProps = disabled ? {} : props;
               return (
                <Button
@@ -124,7 +124,8 @@ const Home: React.FC = () => {
                 }}
                  onClick={() => {
                    if (disabled) {
-                       return alert("Opss");
+                    console.log("disabled");
+                      //  return alert("Opss");
                   }
                 // onClick();
                    }}
@@ -136,17 +137,20 @@ const Home: React.FC = () => {
            }
          }}
               viewerExtraComponent={(fields, event) => {
-                const task = event as unknown as TaskT;
-               return (
-               <div>
-               <p><strong>Title:</strong> {task.title}</p>
-               <p><strong>Tag:</strong> {task.tag}</p>
-               <p><strong>Start Time:</strong> {moment(task.startTime).format("YYYY-MM-DD HH:mm")}</p>
-               <p><strong>End Time:</strong> {moment(task.endTime).format("YYYY-MM-DD HH:mm")}</p>
-               <p><strong>Deadline:</strong> {moment(task.deadLine).format("YYYY-MM-DD HH:mm")}</p>
-               <p><strong>importance:</strong> {task.importance ? "Important" : "Not Important"}</p>
-               <p><strong>urgency:</strong> {task.urgency ? "Urgent" : "Not Urgent"}</p>
-               <p><strong>Description:</strong> {task.desc || "No description"}</p>
+                // const task = event as unknown as TaskT;
+                // use event id to get the task, and get the task details
+                const task = tasks.filter(task => task.taskID === event.event_id.toString())[0];
+                console.log("corresponding task to the event", task);
+                return (
+                <div>
+                <p><strong>Title:</strong> {task.title}</p>
+                <p><strong>Tag:</strong> {task.tag}</p>
+                <p><strong>Start Time:</strong> {moment(task.startTime).format("YYYY-MM-DD HH:mm")}</p>
+                <p><strong>End Time:</strong> {moment(task.endTime).format("YYYY-MM-DD HH:mm")}</p>
+                <p><strong>Deadline:</strong> {moment(task.deadLine).format("YYYY-MM-DD HH:mm")}</p>
+                <p><strong>Importance:</strong> {task.importance ? "Important" : "Not Important"}</p>
+                <p><strong>Urgency:</strong> {task.urgency ? "Urgent" : "Not Urgent"}</p>
+                <p><strong>Description:</strong> {task.desc || "No description"}</p>
                 </div>
             );
            }}
