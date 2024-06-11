@@ -68,6 +68,7 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
       desc: values.desc,
       taskID: taskID,
     };
+    console.log("new Task added via PLUS ICON: ", newTask);
     message.success('Successfully Added');
     await addTask(newTask);
     setTasks([...tasks, newTask]);
@@ -126,7 +127,7 @@ const EisenhowerMatrix: React.FC<EMatProps> = ({ taskList, filterTasksByGradient
         startTime: moment(data.startTime,'YYYY-MM-DD HH:mm:ss'),
         endTime: moment(data.endTime,'YYYY-MM-DD HH:mm:ss'),
         deadLine: moment(data.deadLine,'YYYY-MM-DD HH:mm:ss'),
-        // startTime: NlpTask.startTime,
+        // startTime: NlpTask.startTime,n
         // endTime: NlpTask.endTime,
         // deadLine: NlpTask.deadLine,
         importance: data.importance,

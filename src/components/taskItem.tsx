@@ -29,7 +29,7 @@ export default function TaskItem(props:Iprops){
                 { /* print deadLine type */
                 
                 }
-                {moment(deadLine).format('YYYY-MM-DD HH:mm')}
+                {moment(startTime).format('YYYY-MM-DD HH:mm')}
               </div>
            </div>
             <div className="task-item_status">

@@ -25,6 +25,11 @@ const Home: React.FC = () => {
   const [events, setEvents] = useState<ProcessedEvent[]>([]);
   const [isTaskView, setIsTaskView] = useState(true); // 默认为任务列表视图
 
+  // make sure tasks always get loaded
+  useEffect(() => {
+    console.log("tasks got now: ", tasks);
+  }, [tasks]);
+
   useEffect(() => {
     const loadTasks = async () => {
       const loadedTasks = await getTasks();
@@ -145,9 +150,9 @@ const Home: React.FC = () => {
                 <div>
                 <p><strong>Title:</strong> {task.title}</p>
                 <p><strong>Tag:</strong> {task.tag}</p>
-                <p><strong>Start Time:</strong> {moment(task.startTime).format("YYYY-MM-DD HH:mm")}</p>
-                <p><strong>End Time:</strong> {moment(task.endTime).format("YYYY-MM-DD HH:mm")}</p>
-                <p><strong>Deadline:</strong> {moment(task.deadLine).format("YYYY-MM-DD HH:mm")}</p>
+                {/* <p><strong>Start Time:</strong> {moment(task.startTime).format("YYYY-MM-DD HH:mm")}</p> */}
+                {/* <p><strong>End Time:</strong> {moment(task.endTime).format("YYYY-MM-DD HH:mm")}</p> */}
+                {/* <p><strong>Deadline:</strong> {moment(task.deadLine).format("YYYY-MM-DD HH:mm")}</p> */}
                 <p><strong>Importance:</strong> {task.importance ? "Important" : "Not Important"}</p>
                 <p><strong>Urgency:</strong> {task.urgency ? "Urgent" : "Not Urgent"}</p>
                 <p><strong>Description:</strong> {task.desc || "No description"}</p>
